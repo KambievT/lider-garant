@@ -1,38 +1,116 @@
+"use client";
+import { CheckCircle2, Phone, MessageSquareText } from "lucide-react";
+
 export default function ManagerCTASection() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
-      <h2 className="mb-8 text-center text-2xl font-semibold text-foreground md:mb-10 md:text-3xl">
-        <span className="text-gradient">Вам всегда поможет персональный менеджер</span>
-      </h2>
-      <div className="grid gap-5 md:grid-cols-3 auto-rows-[1fr]">
-        {/* Card 1 */}
-        <div className="h-full rounded-2xl border border-foreground/15 bg-background/80 p-6">
-          <div className="mb-3 flex items-center gap-3">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/20 text-primary">✓</span>
-            <div className="text-base font-medium text-foreground">Подайте заявку, и мы с Вами свяжемся</div>
-          </div>
-          <p className="mb-5 text-sm text-foreground/70">Перезвоним в течение 15 минут</p>
-          <a href="#application" className="inline-flex h-10 items-center rounded-full border border-primary/40 px-5 text-sm font-medium text-primary transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:bg-primary/10 hover:border-primary/60">Отправить заявку</a>
-        </div>
+    <section className="mx-auto w-full max-w-7xl px-6 py-14 md:py-20">
+      <div
+        className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl outline outline-1 outline-white/0"
+      >
+        {/* затемнение */}
+        <div className="hidden" />
 
-        {/* Card 2 */}
-        <div className="h-full rounded-2xl border border-foreground/15 bg-background/80 p-6">
-          <div className="mb-3 flex items-center gap-3">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/20 text-primary">☎</span>
-            <div className="text-base font-medium text-foreground">Позвоните нам, и мы расскажем все условия</div>
-          </div>
-          <p className="mb-5 text-sm text-foreground/70">Звонок бесплатный</p>
-          <a href="tel:+78000000000" className="inline-flex h-10 items-center rounded-full border border-foreground/25 px-5 text-sm font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:text-primary hover:border-primary/40 hover:bg-foreground/10">8 800 000 00 00</a>
-        </div>
+        {/* декоративное свечение */}
+        <div className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-primary/10 blur-[120px]" />
+        <div className="pointer-events-none absolute -top-16 -left-10 h-48 w-48 rounded-full bg-indigo-500/10 blur-[120px]" />
 
-        {/* Card 3 */}
-        <div className="h-full rounded-2xl border border-foreground/15 bg-background/80 p-6">
-          <div className="mb-3 flex items-center gap-3">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/20 text-primary">💬</span>
-            <div className="text-base font-medium text-foreground">Напишите, и мы подробно ответим на все вопросы</div>
+        <div className="relative z-10 px-6 py-10 md:px-12 md:py-16">
+          <div className="text-center">
+            <h2 className="mb-8 text-2xl font-semibold leading-tight text-foreground md:text-3xl">
+              Вам всегда поможет персональный менеджер
+            </h2>
+
+            {/* карточки */}
+            <div className="mx-auto grid max-w-5xl gap-5 sm:grid-cols-2 md:grid-cols-3">
+              {[
+                {
+                  icon: "check",
+                  title: "Подайте заявку",
+                  desc: "Перезвоним в течение 15 минут и подберём решение.",
+                  link: "#application",
+                  type: "btn",
+                },
+                {
+                  icon: "phone",
+                  title: "Позвоните нам",
+                  desc: "Звонок бесплатный по России.",
+                  link: "tel:+7 800 000 00 00",
+                  type: "link",
+                },
+                {
+                  icon: "message",
+                  title: "Напишите нам",
+                  desc: "Отвечаем на почту в рабочее время.",
+                  link: "mailto:client@lider-garant.ru",
+                  type: "link",
+                },
+              ].map((c, i) => (
+                <div
+                  key={i}
+                  className="
+                    group rounded-2xl border border-white/20 bg-white/5 
+                    backdrop-blur-xl p-5 shadow 
+                    transition-all duration-300 hover:shadow-md hover:-translate-y-0.5
+                  "
+                >
+                  <div className="mb-3 flex items-center gap-3">
+                    <span
+                      className="
+                        inline-flex h-9 w-9 items-center justify-center rounded-full 
+                        bg-primary/10 text-primary text-base
+                      "
+                    >
+                      {c.icon === "check" && <CheckCircle2 className="h-5 w-5" />}
+                      {c.icon === "phone" && <Phone className="h-5 w-5" />}
+                      {c.icon === "message" && <MessageSquareText className="h-5 w-5" />}
+                    </span>
+                    <div className="text-sm font-medium text-foreground">
+                      {c.title}
+                    </div>
+                  </div>
+
+                  <p className="mb-5 text-xs text-foreground/70">{c.desc}</p>
+
+                  {c.type === "btn" ? (
+                    <a
+                      href={c.link}
+                      className="
+                        inline-flex h-10 items-center justify-center w-full rounded-full
+                        border border-primary text-primary text-xs font-semibold
+                        transition-all duration-300 
+                        hover:-translate-y-0.5 hover:bg-primary/10
+                      "
+                    >
+                      Отправить заявку
+                    </a>
+                  ) : (
+                    <a
+                      href={c.link}
+                      className="
+                        inline-flex h-10 items-center justify-center w-full rounded-full
+                        border border-white/30 text-xs font-medium text-foreground 
+                        transition-all duration-300 
+                        hover:-translate-y-0.5 hover:bg-white/10 hover:border-white/50
+                      "
+                    >
+                      {c.link.replace(/^(tel:|mailto:)/, "")}
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-          <p className="mb-5 text-sm text-foreground/70">Электронная почта для клиентов</p>
-          <a href="mailto:client@lider-garant.ru" className="inline-flex h-10 items-center rounded-full border border-primary/40 px-5 text-sm font-medium text-primary transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:bg-primary/10 hover:border-primary/60">client@lider-garant.ru</a>
+
+          {/* правая колонка */}
+          <div className="hidden lg:flex flex-col items-center justify-center text-center px-6">
+            <div className="text-sm font-medium uppercase text-foreground/70 tracking-wide mb-3">
+              Ваш персональный менеджер
+            </div>
+            <p className="max-w-xs text-xs text-foreground/70 leading-relaxed">
+              Следит за сроками, помогает с документами и держит связь удобным
+              для вас способом.
+            </p>
+          </div>
         </div>
       </div>
     </section>

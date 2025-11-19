@@ -9,7 +9,9 @@ export default function SiteFooter() {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Image src="/logo.svg" alt="Логотип" width={28} height={28} />
-              <span className="text-sm font-semibold text-foreground">Лидер‑Гарант</span>
+              <span className="text-sm font-semibold text-foreground">
+                Лидер‑Гарант
+              </span>
             </div>
             <address className="not-italic text-sm text-foreground/70">
               ООО Лидер‑Гарант, 127283, г. Москва, ул. Остоженка 10
@@ -17,39 +19,106 @@ export default function SiteFooter() {
             <div className="text-sm text-foreground/70">
               Служба поддержки
               <div>8 300 000 00 00 Ежедневно с 7 до 20 Мск</div>
-              <a href="mailto:support@lider-garant.ru" className="link-gradient">support@lider-garant.ru</a>
+              <a
+                href="mailto:support@lider-garant.ru"
+                className="link-gradient"
+              >
+                support@lider-garant.ru
+              </a>
             </div>
           </div>
 
           <div>
-            <div className="mb-3 text-sm font-semibold text-foreground">Маркетплейс</div>
+            <div className="mb-3 text-sm font-semibold text-foreground">
+              Маркетплейс
+            </div>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li><Link href="#guarantees" className="link-gradient">Банковская гарантия</Link></li>
-              <li><Link href="#credits" className="link-gradient">Кредиты</Link></li>
-              <li><Link href="#ved" className="link-gradient">ВЭД</Link></li>
-              <li><Link href="#leasing" className="link-gradient">Лизинг</Link></li>
-              <li><Link href="#insurance" className="link-gradient">Страхование</Link></li>
-              <li><Link href="#factoring" className="link-gradient">РКО и спец счета</Link></li>
+              <li>
+                <Link href="/bank-guarantee" className="link-gradient">
+                  Банковская гарантия
+                </Link>
+              </li>
+              <li>
+                <Link href="/credits" className="link-gradient">
+                  Кредиты
+                </Link>
+              </li>
+              <li>
+                <Link href="/ved" className="link-gradient">
+                  ВЭД
+                </Link>
+              </li>
+              <li>
+                <Link href="/leasing" className="link-gradient">
+                  Лизинг
+                </Link>
+              </li>
+              <li>
+                <Link href="/insurance" className="link-gradient">
+                  Страхование
+                </Link>
+              </li>
+              <li>
+                <Link href="/rko" className="link-gradient">
+                  РКО и спец счета
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
-            <div className="mb-3 text-sm font-semibold text-foreground">Сервисы</div>
+            <div className="mb-3 text-sm font-semibold text-foreground">
+              Сервисы
+            </div>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li><Link href="#news" className="link-gradient">Новости</Link></li>
-              <li><Link href="#" className="link-gradient">Проверка контрагента</Link></li>
-              <li><Link href="#" className="link-gradient">Тендерное сопровождение</Link></li>
+              <li>
+                <Link href="/news" className="link-gradient">
+                  Новости
+                </Link>
+              </li>
+              <li>
+                <Link href="/counterparty-check" className="link-gradient">
+                  Проверка контрагента
+                </Link>
+              </li>
+              <li>
+                <Link href="/tender-support" className="link-gradient">
+                  Тендерное сопровождение
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
-            <div className="mb-3 text-sm font-semibold text-foreground">Компания</div>
+            <div className="mb-3 text-sm font-semibold text-foreground">
+              Компания
+            </div>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li><Link href="#" className="link-gradient">О компании</Link></li>
-              <li><Link href="#" className="link-gradient">Контакты</Link></li>
-              <li><Link href="#" className="link-gradient">Карта сайта</Link></li>
-              <li><Link href="#" className="link-gradient">Агентам</Link></li>
-              <li><Link href="#" className="link-gradient">Партнерам</Link></li>
+              <li>
+                <Link href="/about" className="link-gradient">
+                  О компании
+                </Link>
+              </li>
+              <li>
+                <Link href="/contacts" className="link-gradient">
+                  Контакты
+                </Link>
+              </li>
+              <li>
+                <Link href="/sitemap" className="link-gradient">
+                  Карта сайта
+                </Link>
+              </li>
+              <li>
+                <Link href="/agents" className="link-gradient">
+                  Агентам
+                </Link>
+              </li>
+              <li>
+                <Link href="/partners" className="link-gradient">
+                  Партнерам
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

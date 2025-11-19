@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --primary: oklch(0.21 0.006 285.885);
+  --primary: oklch(21.033% 0.00588 285.832);
   --secondary: oklch(0.967 0.001 286.375);
   --warning: #ffd93d;
   --magenta: #e03e9d;

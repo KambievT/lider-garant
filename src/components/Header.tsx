@@ -22,15 +22,16 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Smartphone, Menu, X } from "lucide-react";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 
 const financeItems = [
-  { label: "Гарантии", href: "#guarantees" },
-  { label: "Кредиты", href: "#credits" },
-  { label: "Лизинг", href: "#leasing" },
-  { label: "Факторинг", href: "#factoring" },
-  { label: "Страхование", href: "#insurance" },
-  { label: "ВЭД", href: "#ved" },
-  { label: "РКО и спецсчета", href: "#rko" },
+  { label: "Гарантии", href: "/bank-guarantee" },
+  { label: "Кредиты", href: "/credits" },
+  { label: "Лизинг", href: "/leasing" },
+  { label: "Факторинг", href: "/factoring" },
+  { label: "Страхование", href: "/insurance" },
+  { label: "ВЭД", href: "/ved" },
+  { label: "РКО и спецсчета", href: "/rko" },
 ];
 
 export default function Header() {
@@ -224,10 +225,10 @@ export default function Header() {
         </DialogContent>
       </Dialog>
 
-      {/* Mobile menu */}
-      <Dialog open={mobileOpen} onOpenChange={setMobileOpen}>
-        <DialogContent className="sm:max-w-md p-0 gap-0">
-          <div className="flex h-[100dvh] w-[92vw] max-w-sm flex-col overflow-y-auto rounded-2xl bg-background p-5">
+      {/* Mobile menu (Sheet) */}
+      <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+        <SheetContent side="right" className="p-0 w-[92vw] max-w-sm">
+          <div className="flex h-[100dvh] flex-col overflow-y-auto bg-background p-5">
             <div className="mb-4 flex items-center justify-between">
               <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
                 <Image src="/logo.svg" alt="Логотип" width={80} height={20} />
@@ -258,24 +259,32 @@ export default function Header() {
                 <Link href="#about" onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2 hover:bg-foreground/10">О проекте</Link>
               </nav>
 
-              <div className="grid gap-3 rounded-xl border border-foreground/10 p-4">
-                <div className="flex items-center gap-2">
-                  <Smartphone className="h-5 w-5 text-foreground" />
-                  <a href="tel:+79999999999" className="font-medium text-foreground">+7 (999) 999-99-99</a>
+              <div className="grid gap-4 rounded-2xl border border-foreground/10 bg-foreground/5 p-5 shadow-sm backdrop-blur-md dark:bg-white/5 dark:border-white/10">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-foreground/10 text-foreground/70">
+                      <Smartphone className="h-5 w-5" />
+                    </div>
+                    <a href="tel:+79999999999" className="text-lg font-semibold tracking-tight text-foreground/70">+7 (999) 999-99-99</a>
+                  </div>
+                  <div className="rounded-xl bg-foreground/15 p-1.5 text-foreground shadow-sm dark:bg-black/50">
+                    <ThemeToggle />
+                  </div>
                 </div>
-                <button onClick={() => { setMobileOpen(false); setModalOpen(true); }} className="text-sm text-brand underline">Обратный звонок</button>
-                <Link href="#login" onClick={() => setMobileOpen(false)} className="relative btn-outline-anim inline-flex h-10 items-center justify-center px-5">
-                  <span>Личный кабинет</span>
-                  <svg viewBox="0 0 180 60" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
-                    <rect x="1" y="1" width="178" height="58" rx="12" ry="12"></rect>
-                  </svg>
+                <div className="flex items-center">
+                  <button onClick={() => { setMobileOpen(false); setModalOpen(true); }} className="text-sm font-medium text-primary underline underline-offset-4">
+                    Обратный звонок
+                  </button>
+                </div>
+                <Link href="#login" onClick={() => setMobileOpen(false)} className="inline-flex h-12 w-full items-center justify-center rounded-full bg-primary px-5 font-semibold text-primary-foreground shadow-sm transition hover:shadow-md">
+                  Личный кабинет
                 </Link>
-                <div className="pt-2"><ThemeToggle /></div>
+                
               </div>
             </div>
           </div>
-        </DialogContent>
-      </Dialog>
+        </SheetContent>
+      </Sheet>
     </header>
   );
 }

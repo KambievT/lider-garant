@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
+import Image from "next/image";
 
 const banks = Array.from({ length: 16 }, (_, i) => `/logos/${i + 1}.png`);
 
@@ -34,8 +35,17 @@ export default function BankLogosSlider() {
       >
         {items.map((src, i) => (
           <SwiperSlide key={i}>
-            <div className="flex h-16 items-center justify-center rounded-xl border border-foreground/10 px-4 bg-white">
-              <img src={src} alt={`logo-${i}`} className="max-h-15 w-auto" />
+            <div className="flex h-16 items-center justify-center rounded-xl border border-foreground/10 px-4 bg-white dark:bg-transparent">
+              <Image
+                src={src}
+                alt={`Логотип банка ${i + 1}`}
+                width={120}
+                height={40}
+                sizes="(max-width: 768px) 80px, 120px"
+                className="h-10 w-auto object-contain"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </SwiperSlide>
         ))}

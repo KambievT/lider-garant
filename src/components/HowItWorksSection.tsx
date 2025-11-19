@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import LottieHero from "@/components/LottieHero";
 
 const steps = [
@@ -64,14 +65,6 @@ export default function HowItWorksSection() {
       next();
     }, 7000);
   };
-
-  useEffect(() => {
-    const imgs = steps.map((s) => s.image);
-    imgs.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, []);
 
   useEffect(() => {
     if (progressRef.current) window.clearInterval(progressRef.current);
@@ -187,9 +180,9 @@ export default function HowItWorksSection() {
           </div>
 
           <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-full bg-background/85 px-4 py-2.5 shadow-lg backdrop-blur">
-            <img src="/logos/1.png" alt="Банк 1" className="h-8 w-8 rounded-full bg-foreground/10 object-cover" />
-            <img src="/logos/2.png" alt="Банк 2" className="h-8 w-8 rounded-full bg-foreground/10 object-cover" />
-            <img src="/logos/3.png" alt="Банк 3" className="h-8 w-8 rounded-full bg-foreground/10 object-cover" />
+            <Image src="/logos/1.png" alt="Банк 1" width={32} height={32} className="h-8 w-8 rounded-full bg-foreground/10 object-cover" loading="lazy" decoding="async" />
+            <Image src="/logos/2.png" alt="Банк 2" width={32} height={32} className="h-8 w-8 rounded-full bg-foreground/10 object-cover" loading="lazy" decoding="async" />
+            <Image src="/logos/3.png" alt="Банк 3" width={32} height={32} className="h-8 w-8 rounded-full bg-foreground/10 object-cover" loading="lazy" decoding="async" />
             <span className="ml-1 text-sm font-medium text-foreground/80">+9</span>
           </div>
         </div>

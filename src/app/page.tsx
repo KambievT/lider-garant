@@ -1,40 +1,124 @@
-import BankLogosSlider from "@/components/BankLogosSlider";
 import NewsRibbon from "@/components/NewsRibbon";
 import ApplicationFormSection from "@/components/ApplicationFormSection";
 import BestOffersSection from "@/components/BestOffersSection";
 import ManagerCTASection from "@/components/ManagerCTASection";
-import SiteFooter from "@/components/SiteFooter";
 import HowItWorksSection from "@/components/HowItWorksSection";
-import LottieHero from "@/components/LottieHero";
+import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
+import Link from "next/link";
+import BankLogosSlider from "@/components/BankLogosSlider";
+import HeroCardsAnimation from "@/components/HeroCardsAnimation";
+
 export default function Home() {
+  const products = [
+    {
+      id: "guarantees",
+      title: "Банковские гарантии",
+      desc: "44-ФЗ, 223-ФЗ, 185-ФЗ (615 ПП), коммерческие закупки, налоговые гарантии.",
+      btn: "Узнать лимит",
+      img: "/finance-products/one.png",
+    },
+    {
+      id: "credits",
+      title: "Финансирование контракта",
+      desc: "Онлайн-заявка за минуту, бесплатное сравнение ставок, получение кредита на лучших условиях.",
+      btn: "Подобрать кредит",
+      img: "/finance-products/two.png",
+    },
+    {
+      id: "logistics",
+      title: "Логистическое кредитование бизнеса",
+      desc: "Кредитование для текущих операционных и иных расходов (логистика, оборот).",
+      btn: "Подобрать условия",
+      img: "/finance-products/three.png",
+    },
+    {
+      id: "ved",
+      title: "ВЭД",
+      desc: "Прямые корреспондентские счета в иностранных банках и гарантийные списания комиссии.",
+      btn: "Подробнее",
+      img: "/finance-products/four.png",
+    },
+    {
+      id: "leasing",
+      title: "Лизинг",
+      desc: "Финансируем новое и с пробегом с авансом от 0%.",
+      btn: "Узнать больше",
+      img: "/finance-products/money.png",
+    },
+    {
+      id: "insurance",
+      title: "Страхование",
+      desc: "Экспресс-страхование контрактов свыше 30 млн рублей.",
+      btn: "Узнать больше",
+      img: "/finance-products/hands.png",
+    },
+    {
+      id: "factoring",
+      title: "Факторинг",
+      desc: "Финансирование под уступку права требования, улучшение оборотного капитала.",
+      btn: "Подробнее",
+      img: "/finance-products/settings.png",
+    },
+    {
+      id: "tender",
+      title: "Тендерное сопровождение",
+      desc: "Каждый 3-й тендер — победа! Спецсчет, ЕРУЗ, закрытые секции.",
+      btn: "Подробнее",
+      img: "/finance-products/calculator-hand.png",
+    },
+    {
+      id: "checking",
+      title: "Проверка контрагентов",
+      desc: "Все — от реквизитов и отчетности до контактов и кадровых рисков.",
+      btn: "Подробнее",
+      img: "/finance-products/proverka.png",
+    },
+  ];
+
+  const topProducts = products.slice(0, 2);
+  const otherProducts = products.slice(2);
   return (
     <main className="mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
       <FadeIn>
-      <section className="grid items-center gap-10 md:grid-cols-2">
-        <div className="space-y-6">
-          <h1 className="text-3xl font-semibold leading-tight text-foreground md:text-5xl">
-            <span className="block text-gradient">Финансовый маркетплейс</span>
-            <span className="block">для предпринимателей</span>
-          </h1>
-          <p className="max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
-            Все для госзакупок и личных нужд — получите предложение онлайн.
-            Войдите, и мы подберём решения под ваши задачи.
-          </p>
-          <div className="flex items-center gap-3">
-            <a
-              href="#login"
-              className="btn-gradient inline-flex h-11 items-center rounded-xl px-6 text-sm font-medium md:text-base transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:brightness-110"
-            >
-              Войти
-            </a>
+        <section className="grid items-center gap-10 md:grid-cols-2">
+          <div className="space-y-6">
+            <h1 className="text-3xl font-semibold leading-tight text-foreground md:text-5xl">
+              <span className="block text-gradient">
+                Финансовый маркетплейс
+              </span>
+              <span className="block">для предпринимателей</span>
+            </h1>
+            <p className="max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
+              Все для госзакупок и личных нужд — получите предложение онлайн.
+              Войдите, и мы подберём решения под ваши задачи.
+            </p>
+            <div className="flex items-center gap-3">
+              <Link
+                href="/login"
+                className="btn-gradient inline-flex h-11 items-center rounded-xl px-6 text-sm font-medium md:text-base transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:brightness-110"
+              >
+                Войти
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <div className="relative h-[360px] w-full overflow-hidden rounded-3xl bg-background/70 p-5 backdrop-blur-md md:h-[420px] transition hover:shadow-2xl hover:border-foreground/20">
-          <LottieHero src="/Login.json" />
-        </div>
-      </section>
+          <div className="relative h-[360px] w-full overflow-hidden rounded-3xl bg-background/70 p-5 backdrop-blur-md md:h-[420px] transition hidden md:block">
+            <HeroCardsAnimation
+              rightLogoSrc="./logo.svg"
+              hubLogoSrc="./logo.svg"
+              banks={[
+                { logo: "/bank1.png", approved: true },
+                { logo: "/bank2.png", approved: false },
+              ]}
+              offers={[
+                { bank: "Bank A", approved: true, rate: "11%", term: "12 мес" },
+                { bank: "Bank B", approved: false },
+              ]}
+              singleOffer={{ bank: "Банк", approved: true, amount: "550 000 ₽" }}
+            />
+          </div>
+        </section>
       </FadeIn>
       <FadeIn>
         <BankLogosSlider />
@@ -44,228 +128,150 @@ export default function Home() {
       </FadeIn>
 
       <FadeIn>
-      <section className="relative mx-auto mt-2 w-full max-w-7xl py-10 md:mt-4 md:py-16">
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-gradient-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25 blur-3xl" />
-        </div>
-        <h2 className="mb-8 text-center text-3xl font-semibold tracking-tight text-primary md:mb-10 md:text-4xl">
-          Кто и как зарабатывает с нами?
-        </h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="relative overflow-hidden rounded-3xl border border-dashed border-foreground/25 bg-background/40 p-6 md:p-8 backdrop-blur transition hover:border-foreground/40">
-            <div className="pointer-events-none absolute -left-10 -top-10 h-48 w-48 rounded-full bg-gradient-to-br from-indigo-500/20 to-sky-500/10 blur-2xl" />
-            <div className="relative flex items-start gap-4">
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 text-sm font-bold text-background">A</span>
-              <div>
-                <div className="mb-2 text-base font-semibold text-foreground">ИП и юридические лица</div>
-                <p className="text-sm leading-relaxed text-foreground/80">
-                  Агенты по банковским гарантиям, финансовые брокеры, предприниматели, владельцы бизнеса.
-                </p>
-              </div>
-            </div>
-          </div>
+        <section className="relative mx-auto mt-10 w-full max-w-7xl py-20 md:py-28">
+      <div className="pointer-events-none absolute inset-0 -z-10 flex justify-center">
+      <div className="h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-indigo-500/30 via-sky-500/25 to-emerald-500/30 blur-[140px] opacity-70" />
+      </div>
 
-          <div className="relative overflow-hidden rounded-3xl border border-dashed border-foreground/25 bg-background/40 p-6 md:p-8 backdrop-blur transition hover:border-foreground/40">
-            <div className="pointer-events-none absolute -right-10 -bottom-10 h-48 w-48 rounded-full bg-gradient-to-tr from-emerald-500/20 to-sky-500/10 blur-2xl" />
-            <div className="relative flex items-start gap-4">
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 text-sm font-bold text-background">B</span>
-              <div>
-                <div className="mb-2 text-base font-semibold text-foreground">Физические лица и самозанятые</div>
-                <p className="text-sm leading-relaxed text-foreground/80">
-                  Тендерные специалисты, бухгалтеры, финансовые консультанты, юристы, агенты, фрилансеры и те, кто ищет дополнительный доход.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div className="mt-10 flex flex-col items-center gap-4 text-center">
-          <p className="max-w-2xl text-sm text-foreground/75">Мы вам поможем. Оставьте заявку и начните зарабатывать.</p>
-          <a href="#earn" className="inline-flex h-11 items-center rounded-full border border-primary/40 px-6 text-sm font-medium text-primary transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary/10 hover:border-primary/60">
-            Начать зарабатывать
-          </a>
-        </div>
-      </section>
+      <h2 className="mb-16 text-center text-4xl font-semibold tracking-tight text-primary md:text-5xl">
+      Кто и как зарабатывает с нами?
+      </h2>
+
+
+      <div className="grid gap-8 md:grid-cols-2">
+      <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-[0_0_40px_-10px_rgba(0,0,0,0.15)] transition-all duration-500 hover:shadow-[0_0_55px_-5px_rgba(0,0,0,0.25)] hover:border-white/20">
+      <div className="pointer-events-none absolute -left-16 -top-16 h-52 w-52 rounded-full bg-gradient-to-br from-indigo-500/20 to-sky-500/10 blur-3xl transition-opacity duration-700 group-hover:opacity-80" />
+
+
+      <div className="relative flex items-start gap-5">
+      <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 text-base font-bold text-white shadow-md">
+      A
+      </span>
+      <div>
+      <div className="mb-2 text-lg font-semibold text-foreground">ИП и юридические лица</div>
+      <p className="text-sm leading-relaxed text-foreground/80">
+      Агенты по банковским гарантиям, финансовые брокеры, предприниматели,
+      владельцы бизнеса.
+      </p>
+      </div>
+      </div>
+      </div>
+
+
+      <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-[0_0_40px_-10px_rgba(0,0,0,0.15)] transition-all duration-500 hover:shadow-[0_0_55px_-5px_rgba(0,0,0,0.25)] hover:border-white/20">
+      <div className="pointer-events-none absolute -right-16 -bottom-16 h-52 w-52 rounded-full bg-gradient-to-tl from-emerald-500/20 to-sky-500/10 blur-3xl transition-opacity duration-700 group-hover:opacity-80" />
+
+
+      <div className="relative flex items-start gap-5">
+      <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 text-base font-bold text-white shadow-md">
+      B
+      </span>
+      <div>
+      <div className="mb-2 text-lg font-semibold text-foreground">Физические лица и самозанятые</div>
+      <p className="text-sm leading-relaxed text-foreground/80">
+      Тендерные специалисты, бухгалтеры, финансовые консультанты,
+      юристы, агенты, фрилансеры и те, кто ищет дополнительный доход.
+      </p>
+      </div>
+      </div>
+      </div>
+      </div>
+
+
+      <div className="mt-16 flex flex-col items-center gap-5 text-center">
+      <p className="max-w-xl text-sm text-foreground/70">
+      Мы вам поможем. Оставьте заявку и начните зарабатывать.
+      </p>
+      <a
+      href="#earn"
+      className="inline-flex h-12 items-center rounded-full border border-primary/40 px-8 text-sm font-medium text-primary backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-primary/10 hover:border-primary/60 hover:shadow-lg"
+      >
+      Начать зарабатывать
+      </a>
+      </div>
+         </section>
       </FadeIn>
 
       <FadeIn>
-      <section
-        id="products"
-        className="relative mx-auto mt-2 w-full max-w-7xl py-10 md:mt-4 md:py-16"
+  <section
+  id="products"
+  className="relative overflow-hidden mx-auto mt-12 w-full max-w-7xl py-20 md:py-28"
+>
+  <div className="pointer-events-none absolute inset-0 -z-10">
+    <div className="absolute right-10 top-10 h-64 w-64 rounded-full bg-primary/15 blur-[120px] opacity-70" />
+  </div>
+
+  <h2 className="mb-14 text-center text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+    <span className="text-primary">Финансовые продукты</span>
+  </h2>
+
+  <div className="mb-10 grid gap-8 md:grid-cols-2">
+    {topProducts.map((item) => (
+      <div
+        key={item.id}
+        className="relative overflow-hidden flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-white/5 px-8 py-8 shadow-[0_0_40px_-12px_rgba(0,0,0,0.25)] backdrop-blur-xl transition-all duration-500 hover:shadow-lg"
       >
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute right-8 top-8 h-56 w-56 rounded-full bg-gradient-to-tr from-indigo-500/15 via-sky-500/15 to-emerald-500/15 blur-3xl" />
-        </div>
-        <h2 className="mb-8 text-center text-2xl font-semibold text-foreground md:mb-10 md:text-3xl">
-          <span className="text-gradient">Финансовые продукты</span>
-        </h2>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 auto-rows-[1fr]">
-          <div id="guarantees" className="group h-full rounded-2xl p-[1px] bg-gradient-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25">
-            <div className="rounded-2xl border border-foreground/10 bg-background/70 p-6 backdrop-blur transition hover:shadow-xl hover:border-foreground/20 min-h-[220px] md:min-h-[240px]">
-              <div id="card-guarantees" className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">Банковские гарантии</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-foreground/80">
-                    44-ФЗ, 223-ФЗ, 185-ФЗ (615 ПП), коммерческие закупки, налоговые
-                    гарантии.
-                  </p>
-                  <a href="#" className="inline-flex h-10 items-center rounded-full border border-foreground/20 px-5 text-sm font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:text-primary hover:border-primary/40 hover:bg-foreground/10">
-                    Узнать лимит
-                  </a>
-                </div>
-                <div className="relative mt-1 h-24 w-28 shrink-0 overflow-hidden rounded-xl bg-foreground/5">
-                  <LottieHero src="/finance-products/2.json" hoverPlay autoplay={false} hoverTargetId="card-guarantees" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="credits" className="group h-full rounded-2xl p-[1px] bg-gradient-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25">
-            <div className="rounded-2xl border border-foreground/10 bg-background/70 p-6 backdrop-blur transition hover:shadow-xl hover:border-foreground/20 min-h-[220px] md:min-h-[240px]">
-              <div id="card-credits" className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">Финансирование контракта</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-foreground/80">
-                    Онлайн‑заявка за минуту, бесплатное сравнение ставок, получение
-                    кредита на лучших условиях.
-                  </p>
-                  <a href="#" className="inline-flex h-10 items-center rounded-full border border-foreground/20 px-5 text-sm font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:text-primary hover:border-primary/40 hover:bg-foreground/10">
-                    Подобрать кредит
-                  </a>
-                </div>
-                <div className="relative mt-1 h-24 w-28 shrink-0 overflow-hidden rounded-xl bg-foreground/5">
-                  <LottieHero src="/finance-products/2.json" hoverPlay autoplay={false} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="group h-full rounded-2xl p-[1px] bg-gradient-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25">
-            <div className="rounded-2xl border border-foreground/10 bg-background/70 p-6 backdrop-blur transition hover:shadow-xl hover:border-foreground/20 min-h-[220px] md:min-h-[240px]">
-              <div id="card-logistics" className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">Логистическое кредитование бизнеса</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-foreground/80">
-                    Кредитование для текущих операционных и иных расходов (логистика,
-                    оборот).
-                  </p>
-                  <a href="#" className="inline-flex h-10 items-center rounded-full border border-foreground/20 px-5 text-sm font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:text-primary hover:border-primary/40 hover:bg-foreground/10">
-                    Подобрать условия
-                  </a>
-                </div>
-                <div className="relative mt-1 h-24 w-28 shrink-0 overflow-hidden rounded-xl bg-foreground/5">
-                  <LottieHero src="/finance-products/2.json" hoverPlay autoplay={false} hoverTargetId="card-logistics" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="ved" className="group h-full rounded-2xl p-[1px] bg-gradient-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25">
-            <div className="rounded-2xl border border-foreground/10 bg-background/70 p-6 backdrop-blur transition hover:shadow-xl hover:border-foreground/20 min-h-[220px] md:min-h-[240px]">
-              <div id="card-ved" className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">ВЭД</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-foreground/80">
-                    Прямые корреспондентские счета в иностранных банках и гарантийные
-                    списания комиссии.
-                  </p>
-                  <a href="#" className="inline-flex h-10 items-center rounded-full border border-foreground/20 px-5 text-sm font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:text-primary hover:border-primary/40 hover:bg-foreground/10">
-                    Подробнее
-                  </a>
-                </div>
-                <div className="mt-1 h-20 w-24 shrink-0 rounded-xl bg-gradient-to-br from-foreground/10 to-foreground/5" />
-              </div>
-            </div>
-          </div>
-
-          <div id="leasing" className="group h-full rounded-2xl p-[1px] bg-gradient-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25">
-            <div className="rounded-2xl border border-foreground/10 bg-background/70 p-6 backdrop-blur transition hover:shadow-xl hover:border-foreground/20 min-h-[220px] md:min-h-[240px]">
-              <div id="card-leasing" className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">Лизинг</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-foreground/80">
-                    Финансируем новое и с пробегом с авансом от 0%.
-                  </p>
-                  <a href="#" className="inline-flex h-10 items-center rounded-full border border-foreground/20 px-5 text-sm font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:text-primary hover:border-primary/40 hover:bg-foreground/10">
-                    Узнать больше
-                  </a>
-                </div>
-                <div className="mt-1 h-20 w-24 shrink-0 rounded-xl bg-gradient-to-br from-foreground/10 to-foreground/5" />
-              </div>
-            </div>
-          </div>
-
-          <div id="insurance" className="group h-full rounded-2xl p-[1px] bg-gradient-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25">
-            <div className="rounded-2xl border border-foreground/10 bg-background/70 p-6 backdrop-blur transition hover:shadow-xl hover:border-foreground/20 min-h-[220px] md:min-h-[240px]">
-              <div id="card-insurance" className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">Страхование</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-foreground/80">
-                    Экспресс‑страхование контрактов свыше 30 млн рублей.
-                  </p>
-                  <a href="#" className="inline-flex h-10 items-center rounded-full border border-foreground/20 px-5 text-sm font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:text-primary hover:border-primary/40 hover:bg-foreground/10">
-                    Узнать больше
-                  </a>
-                </div>
-                <div className="mt-1 h-20 w-24 shrink-0 rounded-xl bg-gradient-to-br from-foreground/10 to-foreground/5" />
-              </div>
-            </div>
-          </div>
-
-          <div id="factoring" className="group h-full rounded-2xl p-[1px] bg-gradient-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25">
-            <div className="rounded-2xl border border-foreground/10 bg-background/70 p-6 backdrop-blur transition hover:shadow-xl hover:border-foreground/20 min-h-[220px] md:min-h-[240px]">
-              <div id="card-factoring" className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">Факторинг</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-foreground/80">
-                    Финансирование под уступку права требования, улучшение оборотного
-                    капитала.
-                  </p>
-                  <a href="#" className="inline-flex h-10 items-center rounded-full border border-foreground/20 px-5 text-sm font-medium text-foreground hover:bg-foreground/10">
-                    Подробнее
-                  </a>
-                </div>
-                <div className="mt-1 h-20 w-24 shrink-0 rounded-xl bg-gradient-to-br from-foreground/10 to-foreground/5" />
-              </div>
-            </div>
-          </div>
-
-          <div className="group h-full rounded-2xl p-[1px] bg-gradient-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25">
-            <div className="rounded-2xl border border-foreground/10 bg-background/70 p-6 backdrop-blur transition hover:shadow-xl hover:border-foreground/20 min-h-[220px] md:min-h-[240px]">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">Тендерное сопровождение</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-foreground/80">
-                    Каждый 3‑й тендер — победа! Штат опытных специалистов. Спецсчет,
-                    регистрация в ЕРУЗ, аккредитация на закрытых секциях.
-                  </p>
-                  <a href="#" className="inline-flex h-10 items-center rounded-full border border-foreground/20 px-5 text-sm font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:text-primary hover:border-primary/40 hover:bg-foreground/10">
-                    Подробнее
-                  </a>
-                </div>
-                <div className="mt-1 h-20 w-24 shrink-0 rounded-xl bg-gradient-to-br from-foreground/10 to-foreground/5" />
-              </div>
-            </div>
-          </div>
-
-          <div className="group h-full rounded-2xl p-[1px] bg-gradient-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25">
-            <div className="rounded-2xl border border-foreground/10 bg-background/70 p-6 backdrop-blur transition hover:shadow-xl hover:border-foreground/20 min-h-[220px] md:min-h-[240px]">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">Проверка контрагентов</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-foreground/80">
-                    Все — от реквизитов и отчетности до контактов и кадровых рисков.
-                  </p>
-                  <a href="#" className="inline-flex h-10 items-center rounded-full border border-foreground/20 px-5 text-sm font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:text-primary hover:border-primary/40 hover:bg-foreground/10">
-                    Подробнее
-                  </a>
-                </div>
-                <div className="mt-1 h-20 w-24 shrink-0 rounded-xl bg-gradient-to-br from-foreground/10 to-foreground/5" />
-              </div>
-            </div>
+        <div className="relative flex items-start gap-4">
+          <div className="max-w-md pr-28 md:pr-40">
+            <h3 className="mb-4 text-2xl font-semibold text-foreground">{item.title}</h3>
+            <p className="text-sm leading-relaxed text-foreground/80">{item.desc}</p>
           </div>
         </div>
-      </section>
+
+        <div className="mt-8">
+          <button className="inline-flex rounded-xl bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:brightness-110 active:translate-y-0">
+            {item.btn}
+          </button>
+        </div>
+
+        {(item as any).img && (
+          <Image
+            src={(item as any).img}
+            alt={item.title}
+            width={240}
+            height={240}
+            sizes="(min-width: 768px) 240px, 144px"
+            className="pointer-events-none absolute bottom-4 right-2 md:right-4 h-36 w-36 md:h-60 md:w-60 object-contain transition-transform duration-300 hover:scale-105"
+          />
+        )}
+      </div>
+    ))}
+  </div>
+
+  <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    {otherProducts.map((item) => (
+      <div
+        key={item.id}
+        className="relative overflow-hidden flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-white/5 px-7 py-7 shadow-[0_0_30px_-15px_rgba(0,0,0,0.2)] backdrop-blur-xl transition-all duration-500 hover:shadow-lg"
+      >
+        <div className="flex items-start justify-between gap-3">
+          <div className="pr-24 md:pr-32">
+            <h3 className="mb-3 text-lg font-semibold text-foreground">{item.title}</h3>
+            <p className="mb-6 text-sm leading-relaxed text-foreground/75">{item.desc}</p>
+          </div>
+          {(item as any).img && (
+            <Image
+              src={(item as any).img}
+              alt={item.title}
+              width={240}
+              height={240}
+              sizes="(min-width: 768px) 240px, 192px"
+              className="pointer-events-none absolute bottom-[0px] right-[-20px] md:right-[-80px] h-48 w-48 md:h-60 md:w-60 object-contain transition-transform duration-300 hover:scale-105"
+            />
+          )}
+        </div>
+
+        <div className="mt-auto flex items-center justify-between gap-3">
+          <button className="inline-flex rounded-xl border border-primary px-6 py-2.5 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-1 hover:bg-primary/10 hover:shadow-md active:translate-y-0">
+            {item.btn}
+          </button>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
       </FadeIn>
       <FadeIn>
         <NewsRibbon />
@@ -278,9 +284,6 @@ export default function Home() {
       </FadeIn>
       <FadeIn>
         <ManagerCTASection />
-      </FadeIn>
-      <FadeIn>
-        <SiteFooter />
       </FadeIn>
     </main>
   );
