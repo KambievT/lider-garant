@@ -43,24 +43,36 @@ export default function ApplicationFormSection() {
     });
   };
 
-  const products = ["Кредиты", "Банковская гарантия", "ВЭД", "Лизинг", "Страхование"];
+  const products = [
+    "Кредиты",
+    "Банковская гарантия",
+    "ВЭД",
+    "Лизинг",
+    "Страхование",
+  ];
 
   return (
-    <section id="application" className="mx-auto mt-2 w-full max-w-7xl py-10 md:mt-4 md:py-16">
-      <div className="relative overflow-hidden rounded-3xl border border-foreground/10 bg-foreground/5 p-6 md:p-10">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+    <section id="application" className="mx-auto mt-4 w-full max-w-7xl py-16">
+      <div className="relative overflow-hidden rounded-[32px] border border-foreground/10">
+        <div className="pointer-events-none absolute inset-0 opacity-70">
+          <div className="absolute -top-24 -left-16 h-72 w-72 rounded-full bg-sky-500/30 blur-[160px]" />
+          <div className="absolute -bottom-28 -right-12 h-80 w-80 rounded-full bg-emerald-400/25 blur-[150px]" />
+        </div>
+        <div className="relative grid items-center gap-10 px-6 py-10 md:px-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
-            <h3 className="mb-5 text-3xl font-semibold text-foreground">Оставьте заявку</h3>
+            <h3 className="mb-6 text-3xl font-semibold leading-tight text-primary md:text-[40px]">
+              Оставьте заявку
+            </h3>
             <div className="mb-6 flex flex-wrap gap-3">
               {products.map((p) => (
                 <button
                   key={p}
                   type="button"
                   onClick={() => form.setValue("product", p)}
-                  className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors shadow-sm border ${
+                  className={`rounded-full px-5 py-2 text-sm font-semibold transition-all border ${
                     form.watch("product") === p
-                      ? "bg-[var(--primary)] text-white border-[var(--primary)] shadow-md"
-                      : "bg-background/40 text-foreground/80 border-foreground/10 hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
+                      ? "bg-gradient-to-r from-emerald-400 to-sky-500 text-slate-900 border-transparent shadow-[0_20px_45px_-25px_rgba(16,185,129,1)]"
+                      : "bg-foreground/5 text-foreground/70 border-foreground/10 hover:bg-foreground/10"
                   }`}
                 >
                   {p}
@@ -69,21 +81,26 @@ export default function ApplicationFormSection() {
             </div>
 
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <div className="grid gap-3 md:grid-cols-2">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-5"
+              >
+                <div className="grid gap-4 md:grid-cols-2">
                   <FormField
                     control={form.control}
                     name="inn"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground/90">ИНН</FormLabel>
+                        <FormLabel className="text-xs uppercase tracking-[0.2em] text-foreground/60">
+                          ИНН
+                        </FormLabel>
                         <FormControl>
                           <Input
                             inputMode="numeric"
-                            placeholder="ИНН"
+                            placeholder="Введите ИНН"
                             maxLength={12}
                             {...field}
-                            className="h-12 rounded-full bg-background/90 border border-foreground/10 px-4"
+                            className="h-12 rounded-full border border-foreground/10 bg-foreground/10 px-4 text-foreground placeholder:text-foreground/40 focus-visible:ring-foreground/40"
                           />
                         </FormControl>
                         <FormMessage />
@@ -96,16 +113,21 @@ export default function ApplicationFormSection() {
                     name="amount"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground/90">Сумма</FormLabel>
+                        <FormLabel className="text-xs uppercase tracking-[0.2em] text-foreground/60">
+                          Сумма
+                        </FormLabel>
                         <FormControl>
                           <Input
                             type="text"
                             placeholder="Сумма"
                             {...field}
-                            className="h-12 rounded-full bg-background/90 border border-foreground/10 px-4"
+                            className="h-12 rounded-full border border-foreground/10 bg-foreground/10 px-4 text-foreground placeholder:text-foreground/40 focus-visible:ring-foreground/40"
                             onChange={(e) => {
                               const raw = e.target.value.replace(/[^\d]/g, "");
-                              const formatted = raw.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                              const formatted = raw.replace(
+                                /\B(?=(\d{3})+(?!\d))/g,
+                                " "
+                              );
                               field.onChange(formatted);
                             }}
                           />
@@ -116,28 +138,33 @@ export default function ApplicationFormSection() {
                   />
                 </div>
 
-                <div className="flex flex-col items-start gap-3 md:flex-row md:items-center">
+                <div className="flex flex-col items-start gap-4 md:flex-row md:items-center">
                   <Button
                     type="submit"
-                    className="h-11 rounded-full px-6 font-semibold bg-[var(--primary)] text-white shadow-md hover:brightness-110 transition"
+                    className="h-12 rounded-full px-8 text-sm font-semibold uppercase tracking-wide"
                   >
-                    ОСТАВИТЬ ЗАЯВКУ
+                    Оставить заявку
                   </Button>
                   <p className="text-xs text-foreground/70">
-                    Находим только самые лучшие предложения, в которых сами уверены
+                    Находим только самые лучшие предложения, в которых сами
+                    уверены
                   </p>
                 </div>
               </form>
             </Form>
           </div>
 
-          <div className="relative hidden min-h-[220px] rounded-3xl border border-foreground/10 bg-background/40 lg:block overflow-hidden">
-            <Image src="/zayavka.jpg" alt="Заявка" fill sizes="(min-width: 1024px) 50vw, 0" className="object-cover" loading="lazy" decoding="async" />
-            <div className="absolute inset-0">
-              <div className="absolute right-[-20%] top-[-20%] h-[280px] w-[280px] rounded-full bg-yellow-400/40 blur-3xl" />
-              <div className="absolute right-[10%] bottom-[-10%] h-[220px] w-[220px] rounded-full bg-primary/30 blur-3xl" />
-              <div className="absolute left-[-15%] top-[20%] h-[160px] w-[160px] rounded-full bg-secondary/30 blur-3xl" />
-            </div>
+          <div className="relative hidden min-h-[220px] overflow-hidden rounded-[26px] border border-white/10 bg-white/5 lg:block">
+            <Image
+              src="/zayavka.jpg"
+              alt="Заявка"
+              fill
+              sizes="(min-width: 1024px) 50vw, 0"
+              className="object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-slate-900/30 to-slate-950/60" />
           </div>
         </div>
       </div>

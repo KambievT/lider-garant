@@ -178,3 +178,49 @@
     @apply bg-background text-foreground;
   }
 }
+.btn-three {
+  position: relative;
+  padding: 12px 24px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.btn-three:hover {
+  color: var(--primary);
+}
+
+.btn-three::before,
+.btn-three::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: 0.3s ease;
+  z-index: -1;
+}
+
+.btn-three::before {
+  background: var(--primary, #4a60ff);
+}
+
+.btn-three::after {
+  border: 1px solid var(--primary, #4a60ff);
+  transform: scale(1.2);
+  opacity: 0;
+}
+
+.btn-three:hover::before {
+  transform: scale(0.5);
+  opacity: 0;
+}
+
+.btn-three:hover::after {
+  transform: scale(1);
+  opacity: 1;
+}

@@ -5,20 +5,22 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold tracking-tight transition-all duration-300 ease-out disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none relative focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/40 focus-visible:ring-offset-background hover:-translate-y-0.5 active:translate-y-0 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.55)] hover:shadow-[0_25px_55px_-35px_rgba(15,23,42,0.65)]",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default:
+          "text-white bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 bg-[length:180%_180%] hover:bg-[length:220%_220%] active:scale-[0.97]",
         destructive:
-          "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "text-white bg-gradient-to-r from-rose-500 via-orange-500 to-red-500 hover:brightness-110 active:scale-[0.97] focus-visible:ring-destructive/40",
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "border border-foreground/15 bg-transparent text-foreground hover:border-primary hover:text-primary hover:bg-primary/5 hover:shadow-[0_20px_45px_-30px_rgba(59,130,246,0.75)]",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "bg-slate-900/80 text-white hover:bg-slate-900/90 dark:bg-white/10 dark:text-white/90 dark:hover:bg-white/20 active:scale-[0.98]",
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
+          "text-foreground hover:bg-foreground/5 hover:shadow-inner dark:text-white dark:hover:bg-white/10 active:scale-[0.98]",
+        link:
+          "text-primary underline-offset-4 hover:underline relative after:absolute after:inset-x-0 after:bottom-0 after:h-[1px] after:bg-primary/30 after:transition-all after:duration-300 hover:after:bg-primary after:scale-x-0 hover:after:scale-x-100",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
