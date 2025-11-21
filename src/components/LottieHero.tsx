@@ -2,8 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { LottieRefCurrentProps } from "lottie-react";
-import type { AnimationItem } from "lottie-web";
+import type { LottieRefCurrentProps } from "lottie-react";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -24,7 +23,7 @@ export default function LottieHero({
   className,
   hoverTargetId,
 }: Props) {
-  const [data, setData] = useState<AnimationItem | null>(null); // <- тип вместо any
+  const [data, setData] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showFallback, setShowFallback] = useState(false);
 
@@ -56,34 +55,30 @@ export default function LottieHero({
           const res = await fetch(url, { signal: ctrl.signal });
           clearTimeout(id);
           if (!res.ok) continue;
-          const json: AnimationItem = await res.json();
+          const json = await res.json();
           if (!cancelled) {
             setData(json);
             setError(null);
             setShowFallback(false);
             break;
           }
-        } catch (e) {
-          console.warn("Lottie fetch failed", e);
+        } catch {
           continue;
         }
       }
 
-      if (!cancelled && !data) setError("unavailable");
+      if (!cancelled) setError("unavailable");
     })();
 
     return () => {
       cancelled = true;
       clearTimeout(fallbackTimer);
     };
-  }, [urls, src, data]);
+  }, [urls, src]);
 
   useEffect(() => {
     if (!hoverTargetId) return;
-    const el =
-      typeof document !== "undefined"
-        ? document.getElementById(hoverTargetId)
-        : null;
+    const el = document.getElementById(hoverTargetId);
     if (!el) return;
 
     const onEnter = () => lottieRef.current?.play?.();
@@ -122,29 +117,10 @@ export default function LottieHero({
           style={{ width: "100%", height: "100%" }}
         />
       ) : (
-        // CSS fallback animation
         <div className="absolute inset-0">
-          <div
-            className="absolute -left-10 top-6 h-40 w-40 rounded-full opacity-25 blur-2xl"
-            style={{
-              background:
-                "linear-gradient(90deg, var(--brand-grad-start), var(--brand-grad-end))",
-            }}
-          />
-          <div
-            className="absolute right-6 top-10 h-28 w-28 rounded-full opacity-25 blur-2xl animate-pulse"
-            style={{
-              background:
-                "linear-gradient(90deg, var(--brand-grad-start), var(--brand-grad-end))",
-            }}
-          />
-          <div
-            className="absolute bottom-6 left-10 h-32 w-32 rounded-full opacity-25 blur-2xl animate-[pulse_2s_ease-in-out_infinite]"
-            style={{
-              background:
-                "linear-gradient(90deg, var(--brand-grad-start), var(--brand-grad-end))",
-            }}
-          />
+          <div className="absolute -left-10 top-6 h-40 w-40 rounded-full opacity-25 blur-2xl bg-primary/50" />
+          <div className="absolute right-6 top-10 h-28 w-28 rounded-full opacity-25 blur-2xl animate-pulse bg-primary/40" />
+          <div className="absolute bottom-6 left-10 h-32 w-32 rounded-full opacity-25 blur-2xl animate-[pulse_2s_ease-in-out_infinite] bg-primary/40" />
         </div>
       )}
     </div>
