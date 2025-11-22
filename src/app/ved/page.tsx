@@ -6,8 +6,14 @@ import ManagerCTASection from "@/components/ManagerCTASection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, FreeMode } from "swiper/modules";
 
 export default function Page() {
+  const [visibleDeals] = useState(12);
+
   const offers = [
     {
       country: "Индонезия",
@@ -79,6 +85,24 @@ export default function Page() {
       href: "/tender-support",
     },
   ];
+
+  const deals = Array.from({ length: 24 }).map((_, i) => ({
+    title: [
+      "Внешнеэкономическая деятельность",
+      "Внешнеэкономическая деятельность",
+      "Внешнеэкономическая деятельность",
+      "Внешнеэкономическая деятельность",
+    ][i % 4],
+    amount: [
+      "50 000 000 ₽",
+      "26 205 355 ₽",
+      "76 932 998 ₽",
+      "37 955 980 ₽",
+      "221 929 992 ₽",
+      "30 000 000 ₽",
+      "44 769 067 ₽",
+    ][i % 7],
+  }));
 
   return (
     <main className="mx-auto w-full max-w-7xl px-6 py-10 md:py-16">
@@ -260,49 +284,87 @@ export default function Page() {
 
       <FadeIn>
         <section className="mx-auto mt-2 w-full max-w-7xl py-10">
-          <h2 className="mb-4 text-2xl font-bold tracking-tight text-primary md:text-3xl">
+          <h2 className="mb-8 text-2xl font-bold tracking-tight text-primary md:text-3xl">
             Свободно оплачивайте закупки и получайте валютные платежи
           </h2>
-          <div className="grid gap-6 md:grid-cols-2 text-sm text-foreground/80">
-            <div className="space-y-2">
-              <p>1) Мы находим агента, и вы заключаете договор.</p>
-              <p>
-                Помогаем заключить договор с агентом так, чтобы он провел
-                платежи за вас.
-              </p>
-              <p>
-                2) Деньги вы перечисляете агенту в рублях, мы фиксируем курс
-                валюты и проводим закупки.
-              </p>
-            </div>
-            <div className="space-y-2">
-              <p>
-                3) Поставщик отправляет валюту контрагенту, обычно это
-                происходит в течение 1–3 рабочих дней. Вы оплачиваете комиссию
-                агенту — процент от суммы перевода.
-              </p>
-              <p>
-                4) Ваш контрагент получает платеж, а вы — отчёт и документы,
-                подтверждающие исполнение обязательств.
-              </p>
-            </div>
+
+          {/* Шаги */}
+          <div className="grid gap-6 md:grid-cols-2 mb-10">
+            {[
+              {
+                title: "Шаг 1",
+                content: [
+                  "Мы находим агента, и вы заключаете договор.",
+                  "Помогаем заключить договор с агентом так, чтобы он провел платежи за вас.",
+                ],
+              },
+              {
+                title: "Шаг 2",
+                content: [
+                  "Деньги вы перечисляете агенту в рублях, мы фиксируем курс валюты и проводим закупки.",
+                ],
+              },
+              {
+                title: "Шаг 3",
+                content: [
+                  "Поставщик отправляет валюту контрагенту, обычно это происходит в течение 1–3 рабочих дней. Вы оплачиваете комиссию агенту — процент от суммы перевода.",
+                ],
+              },
+              {
+                title: "Шаг 4",
+                content: [
+                  "Ваш контрагент получает платеж, а вы — отчёт и документы, подтверждающие исполнение обязательств.",
+                ],
+              },
+            ].map((step, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg backdrop-blur-md transition-all hover:-translate-y-1 hover:shadow-2xl"
+              >
+                <div className="mb-3 text-lg font-semibold text-primary">
+                  {step.title}
+                </div>
+                <div className="text-sm text-foreground/80 space-y-2">
+                  {step.content.map((line, idx) => (
+                    <p key={idx}>{line}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="text-sm text-foreground/75">
-            <h3 className="mb-3 text-base font-semibold">
-              Отправляете деньги в другую страну
-            </h3>
-            <p className="mb-1">Комиссия за платеж — от 0,2% до 4%.</p>
-            <p className="mb-3">
-              Минимальная сумма валютного платежа — 10 000 $ или эквивалент.
-            </p>
-            <h3 className="mb-3 text-base font-semibold">
-              Получаете деньги от иностранной компании
-            </h3>
-            <p className="mb-1">Комиссия за платеж — от 0,5%.</p>
-            <p>
-              Минимальная сумма валютного платежа — 10 000 $ или эквивалент в
-              другой валюте.
-            </p>
+
+          {/* Комиссии и условия */}
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                title: "Отправляете деньги в другую страну",
+                content: [
+                  "Комиссия за платеж — от 0,2% до 4%.",
+                  "Минимальная сумма валютного платежа — 10 000 $ или эквивалент.",
+                ],
+              },
+              {
+                title: "Получаете деньги от иностранной компании",
+                content: [
+                  "Комиссия за платеж — от 0,5%.",
+                  "Минимальная сумма валютного платежа — 10 000 $ или эквивалент в другой валюте.",
+                ],
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg backdrop-blur-md transition-all hover:-translate-y-1 hover:shadow-2xl"
+              >
+                <div className="mb-3 text-base font-semibold text-primary">
+                  {item.title}
+                </div>
+                <div className="text-sm text-foreground/75 space-y-2">
+                  {item.content.map((line, idx) => (
+                    <p key={idx}>{line}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </FadeIn>
@@ -426,6 +488,118 @@ export default function Page() {
                 </Button>
               </div>
             ))}
+          </div>
+        </section>
+      </FadeIn>
+
+      <FadeIn>
+        <section className="mx-auto mt-2 w-full max-w-7xl py-8">
+          <div className="mb-2 flex items-end justify-between gap-4">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-primary md:text-3xl">
+                Лента сделок
+              </h2>
+              <p className="text-sm text-foreground/60">
+                Последние заявки от наших клиентов и агентов
+              </p>
+            </div>
+            <div className="text-right">
+              <div className="text-2xl font-bold text-foreground md:text-3xl">
+                3 064 379 982 ₽
+              </div>
+              <div className="text-xs text-foreground/60">
+                Общая сумма последних заявок
+              </div>
+            </div>
+          </div>
+          <div className="relative pt-2">
+            <Swiper
+              modules={[Autoplay, FreeMode]}
+              slidesPerView={1.2}
+              spaceBetween={12}
+              breakpoints={{
+                480: { slidesPerView: 2, spaceBetween: 14 },
+                768: { slidesPerView: 3, spaceBetween: 16 },
+                1024: { slidesPerView: 4, spaceBetween: 18 },
+              }}
+              loop
+              freeMode={{ enabled: true, momentum: false }}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              speed={2200}
+              className="select-none"
+            >
+              {deals.slice(0, visibleDeals).map((d, i) => (
+                <SwiperSlide key={i}>
+                  <div className="w-full rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-foreground/85 backdrop-blur-md flex h-full min-h-[180px] flex-col">
+                    <div className="mb-1 text-xs text-foreground/60">
+                      Внешнеэкономическая деятельность
+                    </div>
+                    <div className="mb-3 text-base font-semibold leading-snug">
+                      {d.title}
+                    </div>
+                    <div className="mb-3 h-px w-full bg-white/10" />
+                    <div className="mt-auto">
+                      <div className="text-2xl font-bold">{d.amount}</div>
+                      <div className="text-xs text-foreground/60">
+                        сумма заявки
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </section>
+      </FadeIn>
+
+      <FadeIn>
+        <section className="mx-auto w-full max-w-7xl py-12">
+          <h2 className="mb-10 text-2xl font-bold text-primary md:text-3xl">
+            Часто ищут
+          </h2>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-xl border border-foreground/10 bg-foreground/10 p-6 space-y-2">
+              {[
+                "Банковские гарантии на исполнение контракта",
+                "Банковские гарантии на участие в тендере",
+                "Банковские гарантии на гарантийное обеспечение (ГО)",
+                "Банковские гарантии на авансовый платёж",
+                "Банковские гарантии по закрытой закупке",
+                "Банковские гарантии по коммерческой закупке",
+              ].map((t, i) => (
+                <Link
+                  key={i}
+                  href="/#application"
+                  className="block text-sm text-primary underline underline-offset-2 hover:text-primary/70 transition-colors"
+                >
+                  {t}
+                </Link>
+              ))}
+            </div>
+
+            <div className="rounded-xl border border-foreground/10 bg-foreground/10 p-6 space-y-2">
+              {[
+                "Банковские гарантии для ИП",
+                "Банковские гарантии для ООО",
+                "Банковские гарантии 44-ФЗ",
+                "Банковские гарантии 223-ФЗ",
+                "Экспресс-гарантии",
+                "Налоговые банковские гарантии",
+              ].map((t, i) => (
+                <Link
+                  key={i}
+                  href="/#application"
+                  className="block text-sm text-primary underline underline-offset-2 hover:text-primary/70 transition-colors"
+                >
+                  {t}
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       </FadeIn>

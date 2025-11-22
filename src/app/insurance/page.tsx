@@ -16,6 +16,7 @@ import { Plus } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
+import Link from "next/link";
 
 export default function Page() {
   const [visibleDeals] = useState(12);
@@ -593,6 +594,54 @@ export default function Page() {
 
       <FadeIn>
         <ManagerCTASection />
+      </FadeIn>
+
+      <FadeIn>
+        <section className="mx-auto w-full max-w-7xl py-12">
+          <h2 className="mb-10 text-2xl font-bold text-primary md:text-3xl">
+            Часто ищут
+          </h2>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-xl border border-foreground/10 bg-foreground/10 p-6 space-y-2">
+              {[
+                "Банковские гарантии на исполнение контракта",
+                "Банковские гарантии на участие в тендере",
+                "Банковские гарантии на гарантийное обеспечение (ГО)",
+                "Банковские гарантии на авансовый платёж",
+                "Банковские гарантии по закрытой закупке",
+                "Банковские гарантии по коммерческой закупке",
+              ].map((t, i) => (
+                <Link
+                  key={i}
+                  href="/#application"
+                  className="block text-sm text-primary underline underline-offset-2 hover:text-primary/70 transition-colors"
+                >
+                  {t}
+                </Link>
+              ))}
+            </div>
+
+            <div className="rounded-xl border border-foreground/10 bg-foreground/10 p-6 space-y-2">
+              {[
+                "Банковские гарантии для ИП",
+                "Банковские гарантии для ООО",
+                "Банковские гарантии 44-ФЗ",
+                "Банковские гарантии 223-ФЗ",
+                "Экспресс-гарантии",
+                "Налоговые банковские гарантии",
+              ].map((t, i) => (
+                <Link
+                  key={i}
+                  href="/#application"
+                  className="block text-sm text-primary underline underline-offset-2 hover:text-primary/70 transition-colors"
+                >
+                  {t}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
       </FadeIn>
     </main>
   );

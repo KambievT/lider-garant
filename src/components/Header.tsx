@@ -32,6 +32,7 @@ const financeItems = [
   { label: "Страхование", href: "/insurance" },
   { label: "ВЭД", href: "/ved" },
   { label: "РКО и спецсчета", href: "/rko" },
+  { label: "Депозиты", href: "/deposit" },
 ];
 
 export default function Header() {

@@ -32,40 +32,48 @@ const cards = [
 
 export default function ManagerCTASection() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
-      <div className="relative overflow-hidden rounded-[32px] border border-foreground/15">
-        <div className="relative grid gap-10 px-8 py-12 md:px-14 lg:grid-cols-[1.15fr_0.85fr]">
+    <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 py-12 sm:py-16 md:py-24">
+      <div className="relative overflow-hidden rounded-[28px] sm:rounded-[32px] border border-foreground/15">
+        <div className="relative grid gap-10 px-5 sm:px-8 md:px-14 py-10 sm:py-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-foreground/70">
+            <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.35em] text-foreground/70">
               Всегда на связи
             </p>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight text-primary md:text-[40px] md:leading-tight">
+            <h2 className="mt-3 sm:mt-4 text-[24px] xs:text-[28px] sm:text-3xl md:text-[40px] font-semibold leading-tight text-primary">
               Вам всегда поможет персональный менеджер
             </h2>
-            <p className="mt-4 max-w-xl text-sm text-foreground/70 md:text-base">
+            <p className="mt-3 sm:mt-4 max-w-xl text-[12px] sm:text-sm md:text-base text-foreground/70">
               Мы берём на себя организацию коммуникации: менеджер подключается в
               любом канале, следит за сроками и держит вас в курсе на каждом
               шаге.
             </p>
 
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
+            <div className="mt-8 grid gap-3 sm:gap-4 sm:grid-cols-2 md:grid-cols-3">
               {cards.map(({ icon: Icon, title, desc, link, cta, variant }) => (
                 <div
                   key={title}
-                  className="group rounded-2xl border border-white/10 bg-white/5/60 p-5 shadow-[0_20px_45px_-35px_rgba(15,23,42,0.9)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_35px_70px_-40px_rgba(6,182,212,0.9)]"
+                  className="group rounded-2xl border border-foreground/10 bg-white/[0.03] 
+                  p-4 sm:p-5   
+                  backdrop-blur-xl transition-all duration-300 
+                  sm:hover:-translate-y-1 sm:hover:border-white/25"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-foreground/15 text-foreground">
-                      <Icon className="h-5 w-5" />
+                    <span className="inline-flex h-9 w-9 xs:h-10 xs:w-10 items-center justify-center rounded-2xl bg-foreground/15 text-foreground">
+                      <Icon className="h-4 w-4 xs:h-5 xs:w-5" />
                     </span>
-                    <div className="text-sm font-semibold">{title}</div>
+                    <div className="text-[13px] sm:text-sm font-semibold">
+                      {title}
+                    </div>
                   </div>
-                  <p className="mt-3 text-xs text-foreground/70">{desc}</p>
+                  <p className="mt-2.5 text-[11px] sm:text-xs text-foreground/70">
+                    {desc}
+                  </p>
                   <Button
                     asChild
                     variant={variant}
                     size="lg"
-                    className="mt-5 w-full justify-center rounded-2xl text-xs font-semibold uppercase tracking-wide"
+                    className="mt-4 sm:mt-5 w-full justify-center rounded-2xl 
+                    text-[10px] xs:text-[11px] sm:text-xs font-semibold uppercase tracking-wide"
                   >
                     <a href={link}>{cta}</a>
                   </Button>
@@ -74,23 +82,22 @@ export default function ManagerCTASection() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-foreground/10 bg-foreground/5 p-6 text-center text-foreground/80 backdrop-blur-2xl">
-            <div className="text-sm font-semibold uppercase tracking-[0.3em] text-foreground/60">
+          <div className="order-first lg:order-none rounded-2xl sm:rounded-3xl border border-foreground/10 bg-foreground/5 p-5 sm:p-6 text-center text-foreground/80 backdrop-blur-2xl">
+            <div className="text-[10px] sm:text-[12px] font-semibold uppercase tracking-[0.25em] text-foreground/60">
               Ваш менеджер
             </div>
-            <p className="mt-4 text-3xl font-semibold text-primary">
-              Лидер&nbsp;Гарант
+            <p className="mt-3 sm:mt-4 text-[24px] sm:text-3xl font-semibold text-primary">
+              Лидер Гарант
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/75">
+            <p className="mt-3 sm:mt-4 text-[12px] sm:text-sm leading-relaxed text-foreground/75">
               Следит за сроками, помогает с документами и держит связь удобным
-              для вас способом. Решаем вопросы даже вне рабочего времени, если
-              ситуация требует оперативности.
+              для вас способом. Решаем вопросы даже вне рабочего времени.
             </p>
-            <div className="mt-6 flex flex-col items-center gap-3 text-sm">
-              <div className="rounded-2xl border border-foreground/10 bg-foreground/10 px-4 py-2 text-foreground">
+            <div className="mt-5 sm:mt-6 flex flex-col items-center gap-2.5 text-[11px] sm:text-sm">
+              <div className="rounded-2xl border border-foreground/10 bg-foreground/10 px-3 py-2 text-foreground">
                 График: 07:00 — 23:00 (МСК)
               </div>
-              <div className="rounded-2xl border border-foreground/10 bg-foreground/10 px-4 py-2 text-foreground">
+              <div className="rounded-2xl border border-foreground/10 bg-foreground/10 px-3 py-2 text-foreground">
                 Каналы: телефон, почта, мессенджеры
               </div>
             </div>

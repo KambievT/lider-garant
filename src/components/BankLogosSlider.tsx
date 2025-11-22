@@ -5,7 +5,7 @@ import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
 import Image from "next/image";
 
-const banks = Array.from({ length: 16 }, (_, i) => `/logos/${i + 1}.png`);
+const banks = Array.from({ length: 16 }, (_, i) => `/logos/${i + 1}.svg`);
 
 export default function BankLogosSlider() {
   const items = [...banks, ...banks, ...banks];

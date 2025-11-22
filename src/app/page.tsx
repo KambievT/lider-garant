@@ -82,36 +82,36 @@ export default function Home() {
     <main className="mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
       <FadeIn>
         <section className="relative overflow-hidden rounded-[40px] border border-foreground/10">
-          <div className="relative grid gap-10 px-6 py-12 md:grid-cols-[1.1fr_0.9fr] md:px-14">
-            <div className="space-y-6">
-              <h1 className="text-4xl font-semibold leading-tight md:text-[52px]">
-                <span className="block text-primary">
+          <div className="relative grid gap-10 px-4 py-12 md:grid-cols-[1.1fr_0.9fr] md:px-14">
+            <div className="flex flex-col justify-center space-y-6 text-left">
+              <h1 className="text-3xl font-semibold leading-tight md:text-[52px]">
+                <span className="block text-primary tracking-tight">
                   Финансовый маркетплейс
                 </span>
                 <span className="block mt-2">для предпринимателей</span>
               </h1>
-              <p className="max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
-                Все для госзакупок и личных нужд - получите предложение онлайн
+
+              <p className="max-w-sm text-sm leading-relaxed text-foreground/70 md:text-lg">
+                Все для госзакупок и личных нужд — получите предложение онлайн
               </p>
-              <div className="flex flex-wrap items-center gap-3">
-                <Button
-                  asChild
-                  size="lg"
-                  className="rounded-2xl bg-primary py-6 px-9 text-sm font-semibold uppercase tracking-wide"
-                >
-                  <Link href="/login">Войти</Link>
-                </Button>
-              </div>
+
+              <Button
+                asChild
+                size="lg"
+                className="rounded-2xl bg-primary text-primary-foreground py-6 px-9 text-sm font-semibold uppercase tracking-wide w-max"
+              >
+                <Link href="/login">Войти</Link>
+              </Button>
             </div>
 
-            <div className="relative w-full overflow-hidden rounded-[30px] p-5 backdrop-blur-2xl ">
+            <div className="relative w-full overflow-hidden rounded-[30px] p-3 md:p-5 backdrop-blur-xl">
               <video
                 src="/hero-fon.mp4"
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="w-full h-auto rounded-2xl"
+                className="w-full h-full rounded-2xl object-cover"
               />
             </div>
           </div>

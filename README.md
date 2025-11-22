@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Проект Next.js с TypeScript, TailwindCSS и shadcn/ui
 
-## Getting Started
+После распаковки архива:
 
-First, run the development server:
+Перейдите в папку с проектом:
+cd имя-папки
 
-```bash
+Установите зависимости:
+npm install
+или
+yarn
+
+Запустите проект в режиме разработки:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+После этого откройте браузер: http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Чтобы собрать проект для продакшн:
+npm run build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Чтобы запустить продакшн-версию локально:
+npm start
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+Размещение на REG.RU(или на другом хостинге)
 
-To learn more about Next.js, take a look at the following resources:
+REG.RU позволяет хостить Node.js проекты. Пример развертывания:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+В панели управления REG.RU создайте хостинг с поддержкой Node.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Загрузите файлы проекта на сервер (через FTP/SFTP или Git).
 
-## Deploy on Vercel
+В консоли сервера выполните:
+npm install — чтобы установить зависимости
+npm run build — чтобы собрать проект
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Настройте запуск сервера командой:
+npm start
+Обычно в REG.RU можно указать команду запуска в настройках хостинга.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+После этого проект будет доступен по вашему домену.
+
+---
+
+Команды для удобства
+
+npm install — установка зависимостей
+
+npm run dev — локальный запуск в режиме разработки
+
+npm run build — сборка проекта
+
+## npm start — запуск продакшн версии
+
+Чтобы убирать логотипы из ленты партнеров , зайдите в папку public потом в папку logos , и там про нумерован каждый логотип, если хотите добавить 1 то вложите его в эту папку и переименуйте на 1 цифру больше

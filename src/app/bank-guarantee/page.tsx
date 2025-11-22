@@ -13,10 +13,56 @@ import {
 } from "@radix-ui/react-accordion";
 import { useState } from "react";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, FreeMode } from "swiper/modules";
 
 export default function BankGuaranteePage() {
   const TOTAL_OFFERS = 25;
   const [visibleOffers, setVisibleOffers] = useState(6);
+  const [visibleDeals] = useState(12);
+
+  const banks = [
+    "Реалист",
+    "Банк Казани",
+    "Абсолют",
+    "МТС",
+    "Зенит",
+    "Альфа",
+    "ПСБ",
+    "Газпромбанк",
+    "Уралсиб",
+    "Металлинвестбанк",
+    "Совкомбанк",
+    "МКБ",
+    "Банк Левобережный",
+    "Руснарбанк",
+    "СГБ",
+    "МСП",
+    "ТКБ",
+    "Санкт-Петербург",
+    "Тиньков",
+    "Ингострахбанк",
+    "СДМ Банк",
+    "ЛокоБанк",
+    "Ак Барс",
+    "Алеф-Банк",
+    "Евразийский Банк",
+    "Росбанк",
+    "Транстройбанк",
+    "Урал ФД",
+    "Банк Колуга",
+    "Банк Солидарности",
+    "Меткомбанк",
+    "Солид Банк",
+    "Промсоцбанк",
+    "БСПБ",
+    "Камкомбанк",
+    "Озон Банк",
+    "Дом РФ",
+    "Кубань Кредит",
+    "Газстрансбанк",
+    "Сбербанк",
+  ];
 
   const related = [
     {
@@ -50,6 +96,24 @@ export default function BankGuaranteePage() {
       href: "/tender-support",
     },
   ];
+
+  const deals = Array.from({ length: 24 }).map((_, i) => ({
+    title: [
+      "Банковская гарантия",
+      "Банковская гарантия",
+      "Банковская гарантия",
+      "Банковская гарантия",
+    ][i % 4],
+    amount: [
+      "50 000 000 ₽",
+      "26 205 355 ₽",
+      "76 932 998 ₽",
+      "37 955 980 ₽",
+      "221 929 992 ₽",
+      "30 000 000 ₽",
+      "44 769 067 ₽",
+    ][i % 7],
+  }));
   return (
     <>
       <main className="mx-auto w-full max-w-7xl px-6 py-10 md:py-16">
@@ -412,37 +476,26 @@ export default function BankGuaranteePage() {
               </span>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
-              {Array.from({ length: TOTAL_OFFERS })
-                .slice(0, visibleOffers)
-                .map((_, i) => (
-                  <div
-                    key={i}
-                    className="relative flex items-center gap-4 rounded-2xl border border-foreground/10 bg-white/5 p-5"
-                  >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-background">
-                      <Image
-                        src={`/logos/${(i % 8) + 1}.png`}
-                        alt="Логотип банка"
-                        width={40}
-                        height={40}
-                        className="h-8 w-8 object-contain"
-                      />
+              {banks.slice(0, visibleOffers).map((bank, i) => (
+                <div
+                  key={i}
+                  className="relative flex items-center gap-4 rounded-2xl border border-foreground/10 bg-white/5 p-5"
+                >
+                  <div className="min-w-0 flex-1">
+                    <div className="mb-1 text-2xl font-semibold text-primary">
+                      {bank}
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="mb-1 text-sm font-semibold text-foreground">
-                        Банк № {2340 + i}
-                      </div>
-                      <div className="text-xs text-foreground/70">
-                        Сумма: до 500 млн ₽ · Срок: до 2600 дн · Комиссия: от
-                        1.8%
-                      </div>
+                    <div className="text-xs text-foreground/70">
+                      Сумма: до 500 млн ₽ · Срок: до 2600 дн · Комиссия: от 1.8%
                     </div>
-                    <Button className="shrink-0 rounded-xl px-4 py-2 text-xs font-semibold shadow-sm transition-transform hover:-translate-y-0.5 hover:shadow-md bg-primary text-primary-foreground">
-                      Подать заявку
-                    </Button>
                   </div>
-                ))}
+                  <Button className="shrink-0 rounded-xl px-4 py-2 text-xs font-semibold shadow-sm transition-transform hover:-translate-y-0.5 hover:shadow-md bg-primary text-primary-foreground">
+                    Подать заявку
+                  </Button>
+                </div>
+              ))}
             </div>
+
             {visibleOffers < TOTAL_OFFERS && (
               <div className="mt-6 flex justify-center">
                 <Button
@@ -596,7 +649,67 @@ export default function BankGuaranteePage() {
         <FadeIn>
           <ManagerCTASection />
         </FadeIn>
-
+        <section className="mx-auto mt-2 w-full max-w-7xl py-8">
+          <div className="mb-2 flex items-end justify-between gap-4">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-primary md:text-3xl">
+                Лента сделок
+              </h2>
+              <p className="text-sm text-foreground/60">
+                Последние заявки от наших клиентов и агентов
+              </p>
+            </div>
+            <div className="text-right">
+              <div className="text-2xl font-bold text-foreground md:text-3xl">
+                3 064 379 982 ₽
+              </div>
+              <div className="text-xs text-foreground/60">
+                Общая сумма последних заявок
+              </div>
+            </div>
+          </div>
+          <div className="relative pt-2">
+            <Swiper
+              modules={[Autoplay, FreeMode]}
+              slidesPerView={1.2}
+              spaceBetween={12}
+              breakpoints={{
+                480: { slidesPerView: 2, spaceBetween: 14 },
+                768: { slidesPerView: 3, spaceBetween: 16 },
+                1024: { slidesPerView: 4, spaceBetween: 18 },
+              }}
+              loop
+              freeMode={{ enabled: true, momentum: false }}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              speed={2200}
+              className="select-none"
+            >
+              {deals.slice(0, visibleDeals).map((d, i) => (
+                <SwiperSlide key={i}>
+                  <div className="w-full rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-foreground/85 backdrop-blur-md flex h-full min-h-[180px] flex-col">
+                    <div className="mb-1 text-xs text-foreground/60">
+                      Гарантии
+                    </div>
+                    <div className="mb-3 text-base font-semibold leading-snug">
+                      {d.title}
+                    </div>
+                    <div className="mb-3 h-px w-full bg-white/10" />
+                    <div className="mt-auto">
+                      <div className="text-2xl font-bold">{d.amount}</div>
+                      <div className="text-xs text-foreground/60">
+                        сумма заявки
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </section>
         <FadeIn>
           <section className="mx-auto w-full max-w-7xl py-12">
             <h2 className="mb-10 text-2xl font-bold text-primary md:text-3xl">

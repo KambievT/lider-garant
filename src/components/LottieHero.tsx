@@ -23,7 +23,7 @@ export default function LottieHero({
   className,
   hoverTargetId,
 }: Props) {
-  const [data, setData] = useState<any | null>(null);
+  const [data, setData] = useState<null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showFallback, setShowFallback] = useState(false);
 
