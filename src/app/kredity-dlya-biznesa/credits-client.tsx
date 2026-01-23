@@ -71,6 +71,7 @@ export default function Page() {
   const [minAmount, setMinAmount] = useState<number | "">("");
   const [maxAmount, setMaxAmount] = useState<number | "">("");
   const [showAll, setShowAll] = useState(false);
+  const PHONE_PATTERN = "\\+7\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}";
 
   const formSchema = z.object({
     inn: z
@@ -427,7 +428,7 @@ export default function Page() {
                 </li>
               </ul>
               <Button asChild className="h-12 btn-three">
-                <Link href="/credits/#application">Подать заявку</Link>
+                <Link href="#application">Подать заявку</Link>
               </Button>
             </div>
 
@@ -582,8 +583,6 @@ export default function Page() {
                       type="number"
                       placeholder="Сумма"
                       inputMode="numeric"
-                      min={1}
-                      step={1000}
                       className={`h-12 w-full rounded-full border border-foreground/15 bg-background/90 px-4 text-sm text-foreground ${
                         errors.amount ? "border-red-500" : ""
                       }`}

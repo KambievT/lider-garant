@@ -2,6 +2,7 @@ import BankLogosSlider from "@/components/BankLogosSlider";
 import FadeIn from "@/components/FadeIn";
 import ManagerCTASection from "@/components/ManagerCTASection";
 import SeeAlso from "@/components/see-also";
+import TenderSupportForm from "@/components/TenderSupportForm";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -129,6 +130,10 @@ export default function Page() {
             ))}
           </div>
         </section>
+      </FadeIn>
+
+      <FadeIn>
+        <TenderSupportForm />
       </FadeIn>
 
       <FadeIn>

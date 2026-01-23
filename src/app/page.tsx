@@ -106,8 +106,8 @@ export default function Home() {
                   <span className="circle">
                     <span className="icon arrow"></span>
                   </span>
-                  <Link href="/voyti" className="button-text">
-                    Войти
+                  <Link href="#application" className="button-text">
+                    Получить предложение
                   </Link>
                 </button>
               </div>

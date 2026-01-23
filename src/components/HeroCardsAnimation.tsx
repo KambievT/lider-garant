@@ -10,7 +10,6 @@ const applicationData = {
 
 export const FullAnimation = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState(applicationData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showResult, setShowResult] = useState(false);
 
@@ -96,7 +95,7 @@ export const FullAnimation = () => {
       {/* Animated background particles */}
       <div className="absolute inset-0">
         {[...Array(15)].map((_, i) => (
-          <motion.divpnpm
+          <motion.div
             key={i}
             className="absolute w-1 h-1 bg-[#3ce8d1]/30 rounded-full"
             animate={{

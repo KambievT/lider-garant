@@ -28,7 +28,7 @@ import { toast } from "sonner";
 const financeItems = [
   { label: "Банковские гарантии", href: "/bankovskie-garantii" },
   { label: "Кредиты для бизнеса", href: "/kredity-dlya-biznesa" },
-  { label: "Лизинг для юрлиц", href: "/lising-dlya-yrlic" },
+  { label: "Лизинг для юрлиц", href: "/lising-dlya-urlic" },
   { label: "Факторинг для бизнеса", href: "/factoring-dlya-biznesa" },
   { label: "Страхование СМР", href: "/strahovanie" },
   { label: "Международные платежи", href: "/ved" },
