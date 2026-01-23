@@ -30,9 +30,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
-  service: z.string({
-    required_error: "Выберите услугу",
-  }),
+  service: z.string().trim().min(1, "Выберите услугу"),
   name: z.string().min(2, "Имя должно содержать минимум 2 символа"),
   phone: z
     .string()
