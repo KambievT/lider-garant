@@ -89,8 +89,8 @@ export default function Home() {
     <main className="mx-auto w-full max-w-7xl px-6 py-12">
       <FadeIn>
         <section className="relative overflow-hidden rounded-[40px] border border-foreground/10">
-          <div className="relative grid gap-10 px-4 py-12 md:grid-cols-[1.1fr_0.9fr] md:px-14">
-            <div className="flex flex-col justify-center space-y-6 text-left">
+          <div className="relative grid gap-8 px-4 py-10 sm:gap-10 sm:py-12 md:px-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12 lg:px-14">
+            <div className="flex min-w-0 flex-col justify-center space-y-5 text-left sm:space-y-6 lg:pr-6 xl:pr-10">
               <h1 className="text-3xl font-semibold leading-tight md:text-[52px]">
                 <span className="block text-primary tracking-tight">
                   Финансовый маркетплейс
@@ -113,7 +113,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative w-full overflow-hidden rounded-[30px] p-3 md:p-5 backdrop-blur-xl">
+            <div className="relative min-w-0 w-full max-w-[520px] justify-self-center lg:justify-self-end">
               <FullAnimation />
             </div>
           </div>

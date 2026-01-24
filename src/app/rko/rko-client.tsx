@@ -123,7 +123,7 @@ const relatedServices = [
     description:
       "44‑ФЗ, 223‑ФЗ, 185‑ФЗ (615 ПП), коммерческие закупки, налоговые гарантии.",
     cta: "Узнать лимит",
-    href: "/bank-guarantee",
+    href: "/bankovskie-garantii",
     image: "/globe.svg",
   },
   {
@@ -131,7 +131,7 @@ const relatedServices = [
     description:
       "Кредитование для осуществления текущих операционных и иных расходов.",
     cta: "Подобрать условия",
-    href: "/credits",
+    href: "/kredity-dlya-biznesa",
     image: "/cart-and-box.png",
   },
   {
@@ -139,14 +139,14 @@ const relatedServices = [
     description:
       "Онлайн заявка, сравнение ставок, выдача кредита на лучших условиях.",
     cta: "Подобрать кредит",
-    href: "/tender-support",
+    href: "/tendernoe-soprovojdenie",
     image: "/finance-products/money.png",
   },
   {
     title: "Лизинг",
     description: "Финансируем новое и с пробегом с авансом от 0%.",
     cta: "Узнать больше",
-    href: "/leasing",
+    href: "/lising-dlya-urlic",
     image: "/finance-products/hands.png",
   },
   {
@@ -154,7 +154,7 @@ const relatedServices = [
     description:
       "Каждый 3-й тендер — победа. Штат опытных специалистов и спецсчет.",
     cta: "Подробнее",
-    href: "/tender-support",
+    href: "/tendernoe-soprovojdenie",
     image: "/shield.png",
   },
   {
@@ -162,7 +162,7 @@ const relatedServices = [
     description:
       "Все от реквизитов и отчетности до контактов и кадровых рисков.",
     cta: "Подробнее",
-    href: "/counterparty-check",
+    href: "/proverka-contragentov",
     image: "/window.svg",
   },
 ];

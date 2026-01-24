@@ -284,7 +284,7 @@ export default function TenderSupportForm() {
                         <div className="space-y-1 leading-none">
                           <FormLabel className="text-xs font-normal text-foreground/70 md:text-sm">
                             Я согласен получать новости, рассылки и звонки от
-                            Группы ВБЦ
+                            Лидер гарант
                           </FormLabel>
                         </div>
                       </FormItem>

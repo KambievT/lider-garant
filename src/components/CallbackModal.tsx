@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { PhoneInput } from "@/components/ui/phone-input";
 
 type Props = {
@@ -8,8 +9,21 @@ type Props = {
   onClose: () => void;
 };
 
+type FormValues = {
+  name: string;
+  phone: string;
+};
+
 export default function CallbackModal({ open, onClose }: Props) {
   const [mounted, setMounted] = useState(false);
+
+  const form = useForm<FormValues>({
+    defaultValues: {
+      name: "",
+      phone: "",
+    },
+    mode: "onSubmit",
+  });
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -70,10 +84,10 @@ export default function CallbackModal({ open, onClose }: Props) {
             </button>
           </div>
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
+            onSubmit={form.handleSubmit(() => {
               onClose();
-            }}
+              form.reset();
+            })}
             className="space-y-3"
           >
             <input
@@ -81,16 +95,26 @@ export default function CallbackModal({ open, onClose }: Props) {
               placeholder="Ваше имя"
               className="w-full rounded-xl border border-foreground/15 bg-background px-3 py-2.5 text-sm outline-none focus:border-foreground/30 sm:text-base"
               required
+              {...form.register("name", { required: true })}
             />
             <div>
               <label className="sr-only" htmlFor="callback-phone">
                 Телефон
               </label>
-              <PhoneInput
-                id="callback-phone"
+              <Controller
                 name="phone"
-                className="w-full rounded-xl border border-foreground/15 bg-background px-3 py-2.5 text-sm outline-none focus:border-foreground/30 sm:text-base"
-                required
+                control={form.control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <PhoneInput
+                    id="callback-phone"
+                    name="phone"
+                    className="w-full rounded-xl border border-foreground/15 bg-background px-3 py-2.5 text-sm outline-none focus:border-foreground/30 sm:text-base"
+                    required
+                    value={field.value}
+                    onChange={field.onChange}
+                  />
+                )}
               />
             </div>
             <button

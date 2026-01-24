@@ -1,5 +1,6 @@
 "use client";
 
+import { Controller, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PhoneInput } from "@/components/ui/phone-input";
@@ -22,6 +23,13 @@ interface ApplicationFormProps {
   onSubmit?: (e: React.FormEvent) => void;
 }
 
+type FormValues = {
+  inn: string;
+  amount: string;
+  phone: string;
+  consent: boolean;
+};
+
 export default function ApplicationForm({
   formId,
   title = "Подберем самые выгодные предложения",
@@ -31,6 +39,21 @@ export default function ApplicationForm({
   imageAlt = "good deal",
   onSubmit,
 }: ApplicationFormProps) {
+  const form = useForm<FormValues>({
+    defaultValues: {
+      inn: "",
+      amount: "",
+      phone: "",
+      consent: false,
+    },
+    mode: "onSubmit",
+    shouldFocusError: false,
+  });
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    if (onSubmit) onSubmit(e);
+  };
+
   return (
     <section className="mx-auto mt-2 w-full max-w-7xl py-12">
       <div className="grid items-stretch gap-10 md:grid-cols-2">
@@ -44,12 +67,14 @@ export default function ApplicationForm({
             className="space-y-4"
             action="#"
             method="post"
-            onSubmit={onSubmit}
+            onSubmit={(e) => {
+              void form.handleSubmit(() => undefined)(e);
+              handleFormSubmit(e);
+            }}
           >
             <div className="grid gap-4">
               <Input
                 type="text"
-                name="inn"
                 placeholder="ИНН"
                 inputMode="numeric"
                 pattern={VALIDATION_PATTERNS.INN.source}
@@ -57,10 +82,10 @@ export default function ApplicationForm({
                 required
                 maxLength={12}
                 className={INPUT_CLASSES.ROUNDED_FULL}
+                {...form.register("inn")}
               />
               <Input
                 type="number"
-                name="amount"
                 placeholder="Сумма"
                 inputMode="numeric"
                 min={1}
@@ -68,11 +93,20 @@ export default function ApplicationForm({
                 title="Укажите сумму больше 0"
                 required
                 className={INPUT_CLASSES.ROUNDED_FULL}
+                {...form.register("amount")}
               />
-              <PhoneInput
+              <Controller
                 name="phone"
-                className={INPUT_CLASSES.ROUNDED_FULL}
-                required
+                control={form.control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <PhoneInput
+                    className={INPUT_CLASSES.ROUNDED_FULL}
+                    required
+                    value={field.value}
+                    onChange={field.onChange}
+                  />
+                )}
               />
             </div>
             <label className="flex items-start gap-3 text-xs text-foreground/70">
@@ -80,6 +114,7 @@ export default function ApplicationForm({
                 type="checkbox"
                 required
                 className="mt-0.5 h-4 w-4 rounded border-foreground/30"
+                {...form.register("consent", { required: true })}
               />
               <span>
                 Ставя галочку, я соглашаюсь на обработку персональных данных, в

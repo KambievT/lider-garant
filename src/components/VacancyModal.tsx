@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -28,6 +29,13 @@ interface Props {
   open: boolean;
   onClose: () => void;
 }
+
+type ResponseFormValues = {
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+};
 
 const defaultVacancyData: Record<number, Partial<Vacancy>> = {
   1: {
@@ -269,6 +277,16 @@ const defaultVacancyData: Record<number, Partial<Vacancy>> = {
 export default function VacancyModal({ vacancy, open, onClose }: Props) {
   const [mounted, setMounted] = useState(false);
 
+  const form = useForm<ResponseFormValues>({
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
+    },
+    mode: "onSubmit",
+  });
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -381,10 +399,10 @@ export default function VacancyModal({ vacancy, open, onClose }: Props) {
               Откликнуться на вакансию
             </h3>
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
+              onSubmit={form.handleSubmit(() => {
                 onClose();
-              }}
+                form.reset();
+              })}
               className="space-y-4"
             >
               <div>
@@ -396,6 +414,7 @@ export default function VacancyModal({ vacancy, open, onClose }: Props) {
                   placeholder="Введите ваше имя"
                   className="w-full rounded-lg border border-foreground/15 bg-background px-4 py-3 text-sm outline-none focus:border-foreground/30 transition-colors"
                   required
+                  {...form.register("name", { required: true })}
                 />
               </div>
 
@@ -408,6 +427,7 @@ export default function VacancyModal({ vacancy, open, onClose }: Props) {
                   placeholder="+7 (___) ___-__-__"
                   className="w-full rounded-lg border border-foreground/15 bg-background px-4 py-3 text-sm outline-none focus:border-foreground/30 transition-colors"
                   required
+                  {...form.register("phone", { required: true })}
                 />
               </div>
 
@@ -419,6 +439,7 @@ export default function VacancyModal({ vacancy, open, onClose }: Props) {
                   type="email"
                   placeholder="your@email.com"
                   className="w-full rounded-lg border border-foreground/15 bg-background px-4 py-3 text-sm outline-none focus:border-foreground/30 transition-colors"
+                  {...form.register("email")}
                 />
               </div>
 
@@ -430,6 +451,7 @@ export default function VacancyModal({ vacancy, open, onClose }: Props) {
                   placeholder="Расскажите, почему вы подходите на эту должность..."
                   rows={4}
                   className="w-full rounded-lg border border-foreground/15 bg-background px-4 py-3 text-sm outline-none focus:border-foreground/30 transition-colors resize-none"
+                  {...form.register("message")}
                 />
               </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { PhoneInput } from "@/components/ui/phone-input";
 import { Label } from "@/components/ui/label";
@@ -21,9 +22,22 @@ export default function GuaranteeCalculator() {
   const [amount, setAmount] = useState(1000000);
   const [months, setMonths] = useState(10);
   const [discount, setDiscount] = useState(true);
-  const [fullname, setFullname] = useState("");
-  const [phone, setPhone] = useState("");
   const [phoneKey, setPhoneKey] = useState(0);
+
+  type FormValues = {
+    fullname: string;
+    phone: string;
+    consent: boolean;
+  };
+
+  const form = useForm<FormValues>({
+    defaultValues: {
+      fullname: "",
+      phone: "",
+      consent: true,
+    },
+    mode: "onSubmit",
+  });
 
   const formatNumber = (num: number) => {
     return num.toLocaleString("ru-RU");
@@ -48,13 +62,17 @@ export default function GuaranteeCalculator() {
     setMonths(Math.min(Math.max(value, 1), 120));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log({ guaranteeType, amount, months, discount, fullname, phone });
+  const onSubmit = (values: FormValues) => {
+    console.log({
+      guaranteeType,
+      amount,
+      months,
+      discount,
+      fullname: values.fullname,
+      phone: values.phone,
+    });
 
-    // Reset form
-    setFullname("");
-    setPhone("");
+    form.reset();
     setPhoneKey((k) => k + 1);
 
     toast.success("Заявка отправлена");
@@ -244,15 +262,21 @@ export default function GuaranteeCalculator() {
                 </div>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-4"
+              >
                 <div className="space-y-2">
                   <Input
                     type="text"
                     placeholder="ФИО"
-                    value={fullname}
-                    onChange={(e) =>
-                      setFullname(e.target.value.replace(/\d/g, ""))
-                    }
+                    {...form.register("fullname", {
+                      required: true,
+                      onChange: (e) => {
+                        const target = e.target as HTMLInputElement;
+                        target.value = target.value.replace(/\d/g, "");
+                      },
+                    })}
                     className="bg-white border-gray-300 px-4 py-3 md:py-6 text-sm md:text-base"
                     required
                   />
@@ -260,13 +284,20 @@ export default function GuaranteeCalculator() {
 
                 <div className="space-y-2">
                   {/* Phone input styled as rectangular input like others */}
-                  <PhoneInput
-                    key={phoneKey}
-                    placeholder="+7 (___) ___-__-__"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="bg-white border-gray-300 px-4 py-3 md:py-6 text-sm md:text-base"
-                    required
+                  <Controller
+                    name="phone"
+                    control={form.control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <PhoneInput
+                        key={phoneKey}
+                        placeholder="+7 (___) ___-__-__"
+                        value={field.value}
+                        onChange={field.onChange}
+                        className="bg-white border-gray-300 px-4 py-3 md:py-6 text-sm md:text-base text-black"
+                        required
+                      />
+                    )}
                   />
                 </div>
 
@@ -309,6 +340,7 @@ export default function GuaranteeCalculator() {
                     defaultChecked
                     required
                     className="h-5 w-5 rounded border border-gray-300 accent-primary focus:ring-2 focus:ring-primary/30"
+                    {...form.register("consent", { required: true })}
                   />
                   <span className="text-xs md:text-sm ml-2">
                     Я даю согласие на обработку{" "}
