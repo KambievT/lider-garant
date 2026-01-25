@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function HashScroll() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     const scrollToHash = () => {
@@ -42,7 +41,7 @@ export default function HashScroll() {
       cancelAnimationFrame(raf1);
       window.removeEventListener("hashchange", scrollToHash);
     };
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return null;
 }
