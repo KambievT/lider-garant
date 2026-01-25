@@ -6,7 +6,9 @@ export default function Page() {
       <h1 className="text-4xl font-semibold text-primary text-center">
         Проверка контрагента
       </h1>
-      <ManagerCTASection />
+      <div id="contact">
+        <ManagerCTASection />
+      </div>
     </main>
   );
 }

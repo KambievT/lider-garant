@@ -17,7 +17,7 @@ export default function Home() {
       desc: "44-ФЗ, 223-ФЗ, 185-ФЗ (615 ПП), коммерческие закупки, налоговые гарантии.",
       btn: "Узнать лимит",
       img: "/finance-products/guarantee.png",
-      link: "/bankovskie-garantii",
+      link: "/bankovskie-garantii#form",
     },
     {
       id: "credits",
@@ -25,7 +25,7 @@ export default function Home() {
       desc: "Онлайн-заявка за минуту, бесплатное сравнение ставок, получение кредита на лучших условиях.",
       btn: "Подобрать кредит",
       img: "/finance-products/two.png",
-      link: "/kredity-dlya-biznesa",
+      link: "/kredity-dlya-biznesa#application",
     },
     {
       id: "logistics",
@@ -33,7 +33,7 @@ export default function Home() {
       desc: "Кредитование для текущих операционных и иных расходов (логистика, оборот).",
       btn: "Подобрать условия",
       img: "/finance-products/three.png",
-      link: "/kredity-dlya-biznesa",
+      link: "/kredity-dlya-biznesa#application",
     },
     {
       id: "ved",
@@ -41,7 +41,7 @@ export default function Home() {
       desc: "Прямые корреспондентские счета в иностранных банках и гарантийные списания комиссии.",
       btn: "Подробнее",
       img: "/finance-products/four.png",
-      link: "/ved",
+      link: "/ved#contact",
     },
     {
       id: "leasing",
@@ -49,7 +49,7 @@ export default function Home() {
       desc: "Финансируем новое и с пробегом с авансом от 0%.",
       btn: "Узнать больше",
       img: "/finance-products/money.png",
-      link: "/lising-dlya-yrlic",
+      link: "/lising-dlya-urlic#leasing-form",
     },
     {
       id: "insurance",
@@ -57,7 +57,7 @@ export default function Home() {
       desc: "Экспресс-страхование контрактов свыше 30 млн рублей.",
       btn: "Узнать больше",
       img: "/finance-products/hands.png",
-      link: "/strahovanie",
+      link: "/strahovanie#insurance-form",
     },
     {
       id: "factoring",
@@ -65,7 +65,7 @@ export default function Home() {
       desc: "Финансирование под уступку права требования, улучшение оборотного капитала.",
       btn: "Подробнее",
       img: "/finance-products/settings.png",
-      link: "/factoring-dlya-biznesa",
+      link: "/factoring-dlya-biznesa#factoring-form",
     },
     {
       id: "tender",
@@ -73,7 +73,7 @@ export default function Home() {
       desc: "Каждый 3-й тендер — победа! Спецсчет, ЕРУЗ, закрытые секции.",
       btn: "Подробнее",
       img: "/finance-products/calculator-hand.png",
-      link: "/tendernoe-soprovojdenie",
+      link: "/tendernoe-soprovojdenie#tender-support-form",
     },
     {
       id: "checking",
@@ -81,7 +81,7 @@ export default function Home() {
       desc: "Все — от реквизитов и отчетности до контактов и кадровых рисков.",
       btn: "Подробнее",
       img: "/finance-products/proverka.png",
-      link: "/proverka-contragentov",
+      link: "/proverka-contragentov#contact",
     },
   ];
 

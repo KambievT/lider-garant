@@ -3,6 +3,7 @@ import { Montserrat, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/AppShell";
 import { Toaster } from "@/components/ui/sonner";
+import HashScroll from "@/components/HashScroll";
 
 const fonte = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -76,6 +77,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${fonte.className} ${font2.className} antialiased`}>
+        <HashScroll />
         <AppShell>{children}</AppShell>
         <Toaster richColors closeButton />
       </body>
