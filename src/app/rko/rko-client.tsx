@@ -269,14 +269,13 @@ export default function Page() {
     "Газстрансбанк",
     "Сбербанк",
   ];
-  const [visibleDeals] = useState(12);
 
   const [search, setSearch] = useState("");
   const [minAmount, setMinAmount] = useState<number | "">("");
   const [maxAmount, setMaxAmount] = useState<number | "">("");
 
   const filteredBanks = banks
-    .map((bank, i) => ({
+    .map((bank) => ({
       name: bank,
       amount: 500_000_000,
       term: 2600,
@@ -392,9 +391,11 @@ export default function Page() {
                     650 ₽/месяц
                   </div>
                 </div>
-                <Button className="shrink-0 text-primary rounded-lg px-3 py-2 sm:rounded-xl sm:px-4 sm:py-2 text-xs font-semibold shadow-sm transition-transform hover:-translate-y-0.5 hover:shadow-md bg-none border-2 border-primary hover:bg-primary hover:text-white cursor-pointer w-full sm:w-auto">
-                  Подать заявку
-                </Button>
+                <Link href="#rko-form">
+                  <Button className="shrink-0 text-primary rounded-lg px-3 py-2 sm:rounded-xl sm:px-4 sm:py-2 text-xs font-semibold shadow-sm transition-transform hover:-translate-y-0.5 hover:shadow-md bg-none border-2 border-primary hover:bg-primary hover:text-white cursor-pointer w-full sm:w-auto">
+                    Подать заявку
+                  </Button>
+                </Link>
               </div>
             ))}
           </div>

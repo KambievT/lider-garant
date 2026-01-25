@@ -180,7 +180,7 @@ export default function Page() {
       </FadeIn>
 
       <FadeIn>
-        <section className="mx-auto mt-8 w-full max-w-7xl py-10">
+        <section className="mx-auto mt-8 w-full max-w-7xl py-10" id="vacansies">
           <h2 className="mb-8 text-center text-2xl font-bold tracking-tight text-primary md:text-3xl">
             Актуальные вакансии
           </h2>
@@ -241,7 +241,7 @@ export default function Page() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild className="h-12 btn-three">
-                    <a href="#vacancy-form">Откликнуться</a>
+                    <a href="#vacansies">Откликнуться</a>
                   </Button>
                   <Button
                     asChild

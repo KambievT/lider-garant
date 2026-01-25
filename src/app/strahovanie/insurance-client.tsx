@@ -534,7 +534,7 @@ export default function Page() {
                       placeholder="Сумма"
                       inputMode="numeric"
                       min={1}
-                      step={1000}
+                      step="any"
                       className={`h-12 w-full rounded-full border border-foreground/15 bg-background/90 px-4 text-sm text-foreground ${
                         errors.amount ? "border-red-500" : ""
                       }`}

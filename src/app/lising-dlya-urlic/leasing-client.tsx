@@ -85,7 +85,7 @@ export default function Page() {
       .string()
       .min(1, "Введите номер телефона")
       .regex(
-        /^\+7 \d{3} \d{3} \d{2} \d{2}$/,
+        /^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/,
         "Введите корректный номер телефона"
       ),
     consent: z
@@ -327,7 +327,7 @@ export default function Page() {
                       type="text"
                       placeholder="ИНН"
                       inputMode="numeric"
-                      className={`bg-white border-gray-300 px-4 py-2.5 text-sm md:text-base rounded-md ${
+                      className={`bg-white border-gray-300 text-black px-4 py-2.5 text-sm md:text-base rounded-md ${
                         errors.inn ? "border-red-500" : ""
                       }`}
                       {...register("inn")}
@@ -349,7 +349,7 @@ export default function Page() {
                       placeholder="Сумма"
                       min={1}
                       step={1000}
-                      className={`bg-white border-gray-300 px-4 py-2.5 text-sm md:text-base rounded-md ${
+                      className={`bg-white border-gray-300 text-black px-4 py-2.5 text-sm md:text-base rounded-md ${
                         errors.amount ? "border-red-500" : ""
                       }`}
                       {...register("amount")}
@@ -372,7 +372,7 @@ export default function Page() {
                         <PhoneInput
                           key={phoneKey}
                           id="phone"
-                          className={`bg-white border-gray-300 px-4 py-2.5 text-sm md:text-base rounded-md ${
+                          className={`bg-white border-gray-300 text-black px-4 py-2.5 text-sm md:text-base rounded-md ${
                             errors.phone ? "border-red-500" : ""
                           }`}
                           value={field.value}
@@ -481,9 +481,11 @@ export default function Page() {
                         Удорожание в год: от 16,4%
                       </div>
                     </div>
-                    <Button className="shrink-0 text-primary rounded-lg px-3 py-2 sm:rounded-xl sm:px-4 sm:py-2 text-xs font-semibold shadow-sm transition-transform hover:-translate-y-0.5 hover:shadow-md bg-none border-2 border-primary hover:bg-primary hover:text-white cursor-pointer w-full sm:w-auto">
-                      Подать заявку
-                    </Button>
+                    <Link href="#leasing-form">
+                      <Button className="shrink-0 text-primary rounded-lg px-3 py-2 sm:rounded-xl sm:px-4 sm:py-2 text-xs font-semibold shadow-sm transition-transform hover:-translate-y-0.5 hover:shadow-md bg-none border-2 border-primary hover:bg-primary hover:text-white cursor-pointer w-full sm:w-auto">
+                        Подать заявку
+                      </Button>
+                    </Link>
                   </div>
                 ))
               ) : (

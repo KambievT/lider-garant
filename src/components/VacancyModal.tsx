@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
+import { PhoneInput } from "@/components/ui/phone-input";
+import { toast } from "sonner";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Phone, MessageCircle, Send, MapPin, Clock, Users } from "lucide-react";
+import { Phone, MapPin, Clock, Users } from "lucide-react";
 
 interface Vacancy {
   id: number;
@@ -400,6 +402,9 @@ export default function VacancyModal({ vacancy, open, onClose }: Props) {
             </h3>
             <form
               onSubmit={form.handleSubmit(() => {
+                toast.success(
+                  "Отклик отправлен! Мы свяжемся с вами в ближайшее время."
+                );
                 onClose();
                 form.reset();
               })}
@@ -422,12 +427,18 @@ export default function VacancyModal({ vacancy, open, onClose }: Props) {
                 <label className="block text-sm font-medium text-foreground mb-2">
                   Телефон *
                 </label>
-                <input
-                  type="tel"
-                  placeholder="+7 (___) ___-__-__"
-                  className="w-full rounded-lg border border-foreground/15 bg-background px-4 py-3 text-sm outline-none focus:border-foreground/30 transition-colors"
-                  required
-                  {...form.register("phone", { required: true })}
+                <Controller
+                  name="phone"
+                  control={form.control}
+                  rules={{ required: true }}
+                  render={({ field }) => (
+                    <PhoneInput
+                      value={field.value}
+                      onChange={field.onChange}
+                      className="w-full rounded-lg border border-foreground/15 bg-background px-4 py-3 text-sm outline-none focus:border-foreground/30 transition-colors"
+                      placeholder="+7 (___) ___-__-__"
+                    />
+                  )}
                 />
               </div>
 
