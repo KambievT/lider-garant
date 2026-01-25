@@ -225,7 +225,7 @@ export default function TopApplicationForm() {
                     <PhoneInput
                       key={phoneKey}
                       id="phone"
-                      className={`bg-white border-gray-300 px-4 py-2.5 md:py-6 text-sm md:text-base rounded-md ${
+                      className={`bg-white text-black border-gray-300 px-4 py-2.5 md:py-6 text-sm md:text-base rounded-md ${
                         errors.phone ? "border-red-500" : ""
                       }`}
                       value={field.value}
