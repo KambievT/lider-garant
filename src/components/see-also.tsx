@@ -28,56 +28,56 @@ export default function SeeAlso({ currentPage }: SeeAlsoProps) {
       desc: "44‑ФЗ, 223‑ФЗ, 185‑ФЗ (615 ПП), коммерческие закупки, налоговые гарантии.",
       href: "/bankovskie-garantii",
       img: "/finance-products/guarantee.png",
-      link: "/bankovskie-garantii#form",
+      link: "/bankovskie-garantii",
     },
     {
       title: "Кредит для бизнеса",
       desc: "Кредитование для осуществления текущих операционных и иных расходов.",
       href: "/kredity-dlya-biznesa",
       img: "/finance-products/money.png",
-      link: "/kredity-dlya-biznesa#application",
+      link: "/kredity-dlya-biznesa",
     },
     {
       title: "Страхование СМР",
       desc: "Экспресс страхование крупных контрактов свыше 1млрд рублей.",
       href: "/strahovanie",
       img: "/finance-products/hands.png",
-      link: "/strahovanie#insurance-form",
+      link: "/strahovanie",
     },
     {
       title: "Международные платежи",
       desc: "Прямые корреспондентские счета в иностранных банках и гарантийные снижение комиссии на конвертацию.",
       href: "/ved",
       img: "/finance-products/money.png",
-      link: "/ved#contact",
+      link: "/ved",
     },
     {
       title: "Тендерное сопровождение",
       desc: "Каждый 3‑й тендер — победа! Штат опытных специалистов по цене одного сотрудника. ",
       href: "/tendernoe-soprovojdenie",
       img: "/finance-products/calculator-hand.png",
-      link: "/tendernoe-soprovojdenie#tender-support-form",
+      link: "/tendernoe-soprovojdenie",
     },
     {
       title: "Факторинг для бизнеса",
       desc: "Финансирование под уступку денежного требования.",
       href: "/factoring-dlya-biznesa",
       img: "/finance-products/three.png",
-      link: "/factoring-dlya-biznesa#factoring-form",
+      link: "/factoring-dlya-biznesa",
     },
     {
       title: "Лизинг для юрлиц",
       desc: "Финансируем новое и бу с авансом от 0 %",
       href: "/lising-dlya-urlic",
       img: "/finance-products/four.png",
-      link: "/lising-dlya-urlic#leasing-form",
+      link: "/lising-dlya-urlic",
     },
   ];
 
   const currentPath = (() => {
     const candidate = normalizePath(currentPage);
     const candidateMatchesService = allServices.some(
-      (service) => normalizePath(service.href) === candidate
+      (service) => normalizePath(service.href) === candidate,
     );
 
     if (candidate && candidateMatchesService) return candidate;

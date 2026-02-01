@@ -4,6 +4,7 @@ import "./globals.css";
 import AppShell from "@/components/AppShell";
 import { Toaster } from "@/components/ui/sonner";
 import HashScroll from "@/components/HashScroll";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const fonte = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -19,7 +20,7 @@ const font2 = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   ),
   title: {
     default: "Лидер гарант | Финансовый маркетплейс",
@@ -77,6 +78,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${fonte.className} ${font2.className} antialiased`}>
+        <ScrollToTop />
         <HashScroll />
         <AppShell>{children}</AppShell>
         <Toaster richColors closeButton />

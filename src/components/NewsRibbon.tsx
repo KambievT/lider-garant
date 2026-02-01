@@ -41,8 +41,8 @@ const news = [
 
 export default function NewsRibbon() {
   return (
-    <section className="relative mx-auto w-full max-w-7xl px-6 py-5 overflow-hidden">
-      <div className="relative rounded-4xl border border-foreground/10 p-8 md:p-12 bg-white/5 backdrop-blur-xl">
+    <section className="relative mx-auto w-full max-w-7xl px-6 py-5">
+      <div className="relative rounded-4xl border border-foreground/10 p-8 md:p-12 bg-white/5 backdrop-blur-xl overflow-visible">
         <h2 className="mb-10 mt-5 text-center text-3xl font-semibold text-primary md:text-4xl">
           Новости компании
         </h2>

@@ -117,56 +117,6 @@ const bankOffers = [
   },
 ];
 
-const relatedServices = [
-  {
-    title: "Банковские гарантии",
-    description:
-      "44‑ФЗ, 223‑ФЗ, 185‑ФЗ (615 ПП), коммерческие закупки, налоговые гарантии.",
-    cta: "Узнать лимит",
-    href: "/bankovskie-garantii",
-    image: "/globe.svg",
-  },
-  {
-    title: "Льготное кредитование бизнеса",
-    description:
-      "Кредитование для осуществления текущих операционных и иных расходов.",
-    cta: "Подобрать условия",
-    href: "/kredity-dlya-biznesa",
-    image: "/cart-and-box.png",
-  },
-  {
-    title: "Финансирование контракта",
-    description:
-      "Онлайн заявка, сравнение ставок, выдача кредита на лучших условиях.",
-    cta: "Подобрать кредит",
-    href: "/tendernoe-soprovojdenie",
-    image: "/finance-products/money.png",
-  },
-  {
-    title: "Лизинг",
-    description: "Финансируем новое и с пробегом с авансом от 0%.",
-    cta: "Узнать больше",
-    href: "/lising-dlya-urlic",
-    image: "/finance-products/hands.png",
-  },
-  {
-    title: "Тендерное сопровождение",
-    description:
-      "Каждый 3-й тендер — победа. Штат опытных специалистов и спецсчет.",
-    cta: "Подробнее",
-    href: "/tendernoe-soprovojdenie",
-    image: "/shield.png",
-  },
-  {
-    title: "Проверка контрагентов",
-    description:
-      "Все от реквизитов и отчетности до контактов и кадровых рисков.",
-    cta: "Подробнее",
-    href: "/proverka-contragentov",
-    image: "/window.svg",
-  },
-];
-
 export default function Page() {
   const formSchema = z.object({
     inn: z
@@ -182,13 +132,13 @@ export default function Page() {
       .min(1, "Введите номер телефона")
       .regex(
         /^\+7[\s(]?\d{3}[\s)]?\d{3}[-\s]?\d{2}[-\s]?\d{2}$/,
-        "Введите корректный номер телефона"
+        "Введите корректный номер телефона",
       ),
     consent: z
       .boolean()
       .refine(
         (val) => val === true,
-        "Необходимо дать согласие на обработку персональных данных"
+        "Необходимо дать согласие на обработку персональных данных",
       ),
   });
 
@@ -216,7 +166,7 @@ export default function Page() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast.success(
-        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время."
+        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.",
       );
 
       reset();
@@ -270,9 +220,9 @@ export default function Page() {
     "Сбербанк",
   ];
 
-  const [search, setSearch] = useState("");
-  const [minAmount, setMinAmount] = useState<number | "">("");
-  const [maxAmount, setMaxAmount] = useState<number | "">("");
+  const [search] = useState("");
+  const [minAmount] = useState<number | "">("");
+  const [maxAmount] = useState<number | "">("");
 
   const filteredBanks = banks
     .map((bank) => ({
@@ -284,7 +234,7 @@ export default function Page() {
       (bank) =>
         bank.name.toLowerCase().includes(search.toLowerCase()) &&
         (minAmount === "" || bank.amount >= minAmount) &&
-        (maxAmount === "" || bank.amount <= maxAmount)
+        (maxAmount === "" || bank.amount <= maxAmount),
     )
     .slice(0, visibleOffers);
 
@@ -456,7 +406,6 @@ export default function Page() {
                       placeholder="Сумма"
                       inputMode="numeric"
                       min={1}
-                      step={1000}
                       className={`h-12 w-full rounded-full border border-foreground/15 bg-background/90 px-4 text-sm text-foreground ${
                         errors.amount ? "border-red-500" : ""
                       }`}

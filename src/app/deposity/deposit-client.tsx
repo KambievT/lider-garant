@@ -39,13 +39,13 @@ export default function DepositsPage() {
       .min(1, "Введите номер телефона")
       .regex(
         /^\+7[\s(]?\d{3}[\s)]?\d{3}[-\s]?\d{2}[-\s]?\d{2}$/,
-        "Введите корректный номер телефона"
+        "Введите корректный номер телефона",
       ),
     consent: z
       .boolean()
       .refine(
         (val) => val === true,
-        "Необходимо дать согласие на обработку персональных данных"
+        "Необходимо дать согласие на обработку персональных данных",
       ),
   });
 
@@ -73,7 +73,7 @@ export default function DepositsPage() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast.success(
-        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время."
+        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.",
       );
 
       reset();
@@ -405,7 +405,6 @@ export default function DepositsPage() {
                           placeholder="Сумма"
                           inputMode="numeric"
                           min={1}
-                          step={1000}
                           className={`h-12 w-full rounded-full border border-foreground/15 bg-background/90 px-4 text-sm text-foreground ${
                             errors.amount ? "border-red-500" : ""
                           }`}

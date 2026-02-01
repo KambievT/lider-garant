@@ -277,7 +277,7 @@ export default function GuaranteeCalculator() {
                         target.value = target.value.replace(/\d/g, "");
                       },
                     })}
-                    className="bg-white border-gray-300 px-4 py-3 md:py-6 text-sm md:text-base"
+                    className="bg-white text-black border-gray-300 px-4 py-3 md:py-6 text-sm md:text-base"
                     required
                   />
                 </div>

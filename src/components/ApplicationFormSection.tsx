@@ -28,7 +28,7 @@ const formSchema = z.object({
     .min(1, "Введите телефон")
     .regex(
       /^\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/,
-      "Введите корректный номер телефона"
+      "Введите корректный номер телефона",
     )
     .refine((phone) => phone.replace(/\D/g, "").length === 11, {
       message: "Введите корректный номер телефона",
@@ -79,6 +79,7 @@ export default function ApplicationFormSection() {
     "ВЭД",
     "Лизинг",
     "Страхование",
+    "Тендерное сопровождение",
   ];
 
   return (
@@ -128,7 +129,7 @@ export default function ApplicationFormSection() {
                             onChange={(e) => {
                               const value = e.target.value.replace(
                                 /[^а-яёa-z\s]/gi,
-                                ""
+                                "",
                               );
                               field.onChange(value);
                             }}
@@ -219,7 +220,7 @@ export default function ApplicationFormSection() {
                               const raw = e.target.value.replace(/[^\d]/g, "");
                               const formatted = raw.replace(
                                 /\B(?=(\d{3})+(?!\d))/g,
-                                " "
+                                " ",
                               );
                               field.onChange(formatted);
                             }}

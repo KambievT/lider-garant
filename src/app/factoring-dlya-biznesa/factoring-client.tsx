@@ -66,8 +66,8 @@ export default function Page() {
   ];
 
   const [search, setSearch] = useState("");
-  const [minAmount, setMinAmount] = useState<number | "">("");
-  const [maxAmount, setMaxAmount] = useState<number | "">("");
+  const [minAmount] = useState<number | "">("");
+  const [maxAmount] = useState<number | "">("");
 
   const formSchema = z.object({
     inn: z
@@ -83,13 +83,13 @@ export default function Page() {
       .min(1, "Введите номер телефона")
       .regex(
         /^\+7[\s(]?\d{3}[\s)]?\d{3}[-\s]?\d{2}[-\s]?\d{2}$/,
-        "Введите корректный номер телефона"
+        "Введите корректный номер телефона",
       ),
     consent: z
       .boolean()
       .refine(
         (val) => val === true,
-        "Необходимо дать согласие на обработку персональных данных"
+        "Необходимо дать согласие на обработку персональных данных",
       ),
   });
 
@@ -117,7 +117,7 @@ export default function Page() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast.success(
-        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время."
+        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.",
       );
 
       reset();
@@ -136,7 +136,7 @@ export default function Page() {
       (bank) =>
         bank.name.toLowerCase().includes(search.toLowerCase()) &&
         (minAmount === "" || bank.amount >= minAmount) &&
-        (maxAmount === "" || bank.amount <= maxAmount)
+        (maxAmount === "" || bank.amount <= maxAmount),
     )
     .slice(0, visibleOffers);
 
@@ -370,7 +370,6 @@ export default function Page() {
                       placeholder="Сумма"
                       inputMode="numeric"
                       min={1}
-                      step={1000}
                       className={`h-12 w-full rounded-full border border-foreground/15 bg-background/90 px-4 text-sm text-foreground ${
                         errors.amount ? "border-red-500" : ""
                       }`}

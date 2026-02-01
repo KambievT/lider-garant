@@ -5,6 +5,7 @@ import FadeIn from "@/components/FadeIn";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import ManagerCTASection from "@/components/ManagerCTASection";
 import SeeAlso from "@/components/see-also";
+import FaqSection from "@/components/FaqSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -134,6 +135,39 @@ export default function Page() {
       "44 769 067 ₽",
     ][i % 7],
   }));
+
+  const faqItems = [
+    {
+      q: "С какой компании будут осуществляться платежи?",
+      a: "Лидер-Гарант обладает широкой базой зарубежных компаний для проведения международных платежей. Компания-плательщик подбирается индивидуально исходя из запроса клиента. Лидер-Гарант предлагает несколько вариантов компаний-плательщиков на ваш выбор.",
+    },
+    {
+      q: "По какому курсу осуществляется оплата?",
+      a: "Курс для оплаты согласовывается и фиксируется с клиентом по данным источника investing.com, однако в некоторых случаях курс может быть зафиксирован по данным ЦБ РФ (cbr.ru).",
+    },
+    {
+      q: "Можете ли вы отказать в услуге?",
+      a: "Мы стараемся проводить все платежи клиентов и всегда подходим индивидуально к каждому кейсу, однако, в редких случаях, мы можем отказать в проведении платежа, если он противоречит политике нашей организации или является незаконным на территории Российской Федерации.",
+    },
+    {
+      q: "Какие сроки зачисления денежных средств поставщику?",
+      a: "Средний срок зачисления средств поставщику 1-3 рабочих дня, однако он может меняться, в зависимости от заданных параметров со стороны клиента или рыночной ситуации. Возможны ситуации, когда мы можем делать платежи за несколько часов или даже осуществлять оплату вперед (для крупных клиентов).",
+    },
+    {
+      q: "Какой размер комиссии и от чего зависит?",
+      a: `Размер комиссии варьируется от 0,3 до 8% и зависит от следующих параметров:
+
+• Сумма платежа
+• Валюта платежа
+• Предмет платежа и желаемое назначение
+• География получателя
+• Публичная репутация получателя`,
+    },
+    {
+      q: "Как я могу быть уверен, что деньги дойдут?",
+      a: "Компания Лидер-Гарант сотрудничает с крупными банками. Мы ценим свою деловую репутацию и выстраиваем долгосрочное сотрудничество как с клиентами, так и с партнерами. Лидер-Гарант гарантирует полное возмещение комиссии и платежа.",
+    },
+  ];
 
   const faqs = [
     "платежи в китай",
@@ -1248,6 +1282,35 @@ export default function Page() {
       </FadeIn>
 
       <FadeIn>
+        <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 p-8 md:p-12 my-12">
+          <div className="relative z-10 grid gap-8 md:grid-cols-[1fr_auto] items-center">
+            <div className="space-y-3">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary">
+                Нужно больше информации?
+              </h2>
+              <p className="text-lg text-foreground/80 leading-relaxed">
+                Звоните и наши менеджеры подробно вам всё расскажут!
+              </p>
+            </div>
+            <div>
+              <Button
+                size="lg"
+                className="btn-three h-14 px-8 text-base font-semibold whitespace-nowrap"
+                onClick={() => {
+                  const contactSection = document.getElementById("contact");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                Заказать звонок
+              </Button>
+            </div>
+          </div>
+        </section>
+      </FadeIn>
+
+      <FadeIn>
         <GuaranteeSection />
       </FadeIn>
 
@@ -1344,6 +1407,14 @@ export default function Page() {
       <FadeIn>
         <SeeAlso currentPage="ved" />
       </FadeIn>
+
+      <FadeIn>
+        <FaqSection
+          title="Вопросы по международным платежам"
+          items={faqItems}
+        />
+      </FadeIn>
+
       <FadeIn>
         <div id="contact">
           <ManagerCTASection />

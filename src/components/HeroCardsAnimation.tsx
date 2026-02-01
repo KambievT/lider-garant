@@ -18,7 +18,7 @@ export const FullAnimation = () => {
       { key: "checks", durationMs: 5600 },
       { key: "offer", durationMs: 3800 },
     ],
-    []
+    [],
   );
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export const FullAnimation = () => {
       { title: "Оцениваем кредитный профиль", subtitle: "Скоринг и риски" },
       { title: "Сравниваем банки", subtitle: "Подбираем лучшие условия" },
     ],
-    []
+    [],
   );
 
   const particles = useMemo(
@@ -94,12 +94,11 @@ export const FullAnimation = () => {
 
         return { dx, dy, duration, delay, left, top };
       }),
-    []
+    [],
   );
 
   return (
     <div className="relative w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl border border-[#3ce8d1]/20 backdrop-blur-sm bg-gradient-to-br from-slate-900 to-slate-800">
-      {/* Animated background particles */}
       <div className="absolute inset-0">
         {particles.map((p, i) => (
           <motion.div
@@ -136,7 +135,7 @@ export const FullAnimation = () => {
           >
             <motion.div
               variants={formVariants}
-              className="relative bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-slate-700 shadow-2xl w-full max-w-md"
+              className="relative bg-slate-900/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-slate-800 shadow-2xl w-full max-w-md"
             >
               <div className="flex items-center justify-center">
                 <motion.div
@@ -216,7 +215,7 @@ export const FullAnimation = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 + idx * 0.45, duration: 0.5 }}
-                    className="bg-slate-800/60 backdrop-blur-sm border border-slate-700 rounded-xl px-3 sm:px-4 py-3 flex items-center gap-3"
+                    className="bg-slate-900/60 backdrop-blur-sm border border-slate-800 rounded-xl px-3 sm:px-4 py-3 flex items-center gap-3"
                   >
                     <motion.div
                       className="w-8 h-8 rounded-full flex items-center justify-center"

@@ -38,13 +38,13 @@ const formSchema = z.object({
     .min(1, "Введите номер телефона")
     .regex(
       /^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/,
-      "Введите корректный номер телефона"
+      "Введите корректный номер телефона",
     ),
   consent: z
     .boolean()
     .refine(
       (val) => val === true,
-      "Необходимо дать согласие на обработку персональных данных"
+      "Необходимо дать согласие на обработку персональных данных",
     ),
 });
 
@@ -59,8 +59,6 @@ export default function TopApplicationForm() {
     control,
     formState: { errors, isSubmitting },
     reset,
-    setValue,
-    watch,
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -77,7 +75,7 @@ export default function TopApplicationForm() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast.success(
-        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время."
+        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.",
       );
 
       reset();
@@ -161,7 +159,7 @@ export default function TopApplicationForm() {
                   render={({ field }) => (
                     <Select onValueChange={field.onChange} value={field.value}>
                       <SelectTrigger
-                        className={`w-full bg-white border-gray-300 px-4 py-2.5 md:py-6 text-sm text-black rounded-md ${
+                        className={`w-full bg-white text-black border-gray-300 px-4 py-2.5 md:py-6 text-sm text-black rounded-md ${
                           errors.guaranteeType ? "border-red-500" : ""
                         }`}
                       >
@@ -197,7 +195,7 @@ export default function TopApplicationForm() {
                   id="fullname"
                   type="text"
                   placeholder="ФИО"
-                  className={`bg-white border-gray-300 px-4 py-2.5 md:py-6 text-sm md:text-base rounded-md ${
+                  className={`bg-white text-black border-gray-300 px-4 py-2.5 md:py-6 text-sm md:text-base rounded-md ${
                     errors.fullname ? "border-red-500" : ""
                   }`}
                   {...register("fullname", {

@@ -17,7 +17,7 @@ export default function Home() {
       desc: "44-ФЗ, 223-ФЗ, 185-ФЗ (615 ПП), коммерческие закупки, налоговые гарантии.",
       btn: "Узнать лимит",
       img: "/finance-products/guarantee.png",
-      link: "/bankovskie-garantii#form",
+      link: "#application",
     },
     {
       id: "credits",
@@ -25,7 +25,7 @@ export default function Home() {
       desc: "Онлайн-заявка за минуту, бесплатное сравнение ставок, получение кредита на лучших условиях.",
       btn: "Подобрать кредит",
       img: "/finance-products/two.png",
-      link: "/kredity-dlya-biznesa#application",
+      link: "#application",
     },
     {
       id: "logistics",
@@ -33,7 +33,7 @@ export default function Home() {
       desc: "Кредитование для текущих операционных и иных расходов (логистика, оборот).",
       btn: "Подобрать условия",
       img: "/finance-products/three.png",
-      link: "/kredity-dlya-biznesa#application",
+      link: "#application",
     },
     {
       id: "ved",
@@ -41,7 +41,7 @@ export default function Home() {
       desc: "Прямые корреспондентские счета в иностранных банках и гарантийные списания комиссии.",
       btn: "Подробнее",
       img: "/finance-products/four.png",
-      link: "/ved#contact",
+      link: "#application",
     },
     {
       id: "leasing",
@@ -49,7 +49,7 @@ export default function Home() {
       desc: "Финансируем новое и с пробегом с авансом от 0%.",
       btn: "Узнать больше",
       img: "/finance-products/money.png",
-      link: "/lising-dlya-urlic#leasing-form",
+      link: "#application",
     },
     {
       id: "insurance",
@@ -57,7 +57,7 @@ export default function Home() {
       desc: "Экспресс-страхование контрактов свыше 30 млн рублей.",
       btn: "Узнать больше",
       img: "/finance-products/hands.png",
-      link: "/strahovanie#insurance-form",
+      link: "#application",
     },
     {
       id: "factoring",
@@ -65,7 +65,7 @@ export default function Home() {
       desc: "Финансирование под уступку права требования, улучшение оборотного капитала.",
       btn: "Подробнее",
       img: "/finance-products/settings.png",
-      link: "/factoring-dlya-biznesa#factoring-form",
+      link: "#application",
     },
     {
       id: "tender",
@@ -73,7 +73,7 @@ export default function Home() {
       desc: "Каждый 3-й тендер — победа! Спецсчет, ЕРУЗ, закрытые секции.",
       btn: "Подробнее",
       img: "/finance-products/calculator-hand.png",
-      link: "/tendernoe-soprovojdenie#tender-support-form",
+      link: "#application",
     },
     {
       id: "checking",
@@ -81,7 +81,7 @@ export default function Home() {
       desc: "Все — от реквизитов и отчетности до контактов и кадровых рисков.",
       btn: "Подробнее",
       img: "/finance-products/proverka.png",
-      link: "/proverka-contragentov#contact",
+      link: "#application",
     },
   ];
 
@@ -99,7 +99,8 @@ export default function Home() {
               </h1>
 
               <p className="max-w-sm text-sm leading-relaxed text-foreground/70 md:text-lg">
-                Все для госзакупок и личных нужд — получите предложение онлайн
+                Все для госзакупок и развития бизнеса — получите предложение
+                онлайн
               </p>
               <div className="flex flex-col gap-5 items-start md:flex-row md:items-center">
                 <button className="learn-more">
@@ -241,13 +242,13 @@ export default function Home() {
       </FadeIn>
 
       <FadeIn>
-        <NewsRibbon />
+        <BestOffersSection />
       </FadeIn>
       <FadeIn>
         <ApplicationFormSection />
       </FadeIn>
       <FadeIn>
-        <BestOffersSection />
+        <NewsRibbon />
       </FadeIn>
       <FadeIn>
         <ManagerCTASection />
