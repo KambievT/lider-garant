@@ -130,7 +130,7 @@ function SeeAlsoSection({ related }: { related: any[] }) {
 
               <div className="mt-auto flex items-center justify-between gap-3">
                 <Link href={item.link}>
-                  <button className="inline-flex rounded-xl border border-primary px-6 py-2.5 text-sm hover:bg-primary font-semibold text-primary transition-all duration-300 hover:-translate-y-1 hover:text-white cursor-pointer hover:shadow-md active:translate-y-0">
+                  <button className="inline-flex rounded-xl border border-primary px-6 py-2.5 text-sm hover:bg-primary font-semibold text-primary transition-all duration-300 hover:-translate-y-1 hover:text-[oklch(0.141_0.005_285.823)] cursor-pointer hover:shadow-md active:translate-y-0 z-50">
                     Узнать больше
                   </button>
                 </Link>

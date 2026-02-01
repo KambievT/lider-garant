@@ -48,7 +48,7 @@ const formSchema = z.object({
     .regex(/^[+]?[\d\s\-\(\)]+$/, "Неверный формат телефона")
     .refine(
       (phone) => phone.replace(/\D/g, "").length >= 11,
-      "Номер телефона должен содержать минимум 11 цифр"
+      "Номер телефона должен содержать минимум 11 цифр",
     ),
 });
 
@@ -209,7 +209,9 @@ export default function Header({ onOpenCallModal }: HeaderProps) {
               </Dialog>
             </div>
 
-            <button className="btn-three py-2 px-6">Личный кабинет</button>
+            <button className="btn-three py-2 px-6 font-semibold">
+              Личный кабинет
+            </button>
           </div>
 
           <button
@@ -317,7 +319,7 @@ export default function Header({ onOpenCallModal }: HeaderProps) {
                   <Link
                     href="#login"
                     onClick={() => setMobileOpen(false)}
-                    className="inline-flex h-12 w-full items-center justify-center rounded-full bg-primary px-5 font-semibold text-primary-foreground shadow-sm transition hover:shadow-md"
+                    className="inline-flex h-12 w-full items-center justify-center rounded-full bg-primary px-5 font-semibold text-[oklch(0.141_0.005_285.823)] shadow-sm transition hover:shadow-md"
                   >
                     Личный кабинет
                   </Link>

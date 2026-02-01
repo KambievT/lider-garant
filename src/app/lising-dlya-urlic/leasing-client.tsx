@@ -86,13 +86,13 @@ export default function Page() {
       .min(1, "Введите номер телефона")
       .regex(
         /^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/,
-        "Введите корректный номер телефона"
+        "Введите корректный номер телефона",
       ),
     consent: z
       .boolean()
       .refine(
         (val) => val === true,
-        "Необходимо дать согласие на обработку персональных данных"
+        "Необходимо дать согласие на обработку персональных данных",
       ),
   });
 
@@ -120,7 +120,7 @@ export default function Page() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast.success(
-        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время."
+        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.",
       );
 
       reset();
@@ -140,7 +140,7 @@ export default function Page() {
       (bank) =>
         bank.name.toLowerCase().includes(search.toLowerCase()) &&
         (minAmount === "" || bank.amount >= minAmount) &&
-        (maxAmount === "" || bank.amount <= maxAmount)
+        (maxAmount === "" || bank.amount <= maxAmount),
     )
     .slice(0, visibleOffers);
 
@@ -482,7 +482,7 @@ export default function Page() {
                       </div>
                     </div>
                     <Link href="#leasing-form">
-                      <Button className="shrink-0 text-primary rounded-lg px-3 py-2 sm:rounded-xl sm:px-4 sm:py-2 text-xs font-semibold shadow-sm transition-transform hover:-translate-y-0.5 hover:shadow-md bg-none border-2 border-primary hover:bg-primary hover:text-white cursor-pointer w-full sm:w-auto">
+                      <Button className="shrink-0 text-primary rounded-lg px-3 py-2 sm:rounded-xl sm:px-4 sm:py-2 text-xs font-semibold shadow-sm transition-transform hover:-translate-y-0.5 hover:shadow-md bg-none border-2 border-primary hover:bg-primary hover:text-white hover:text-[oklch(0.141_0.005_285.823)] cursor-pointer w-full sm:w-auto">
                         Подать заявку
                       </Button>
                     </Link>

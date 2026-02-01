@@ -3,9 +3,7 @@ import FadeIn from "@/components/FadeIn";
 import BankLogosSlider from "@/components/BankLogosSlider";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Link from "next/link";
-import WhyUs from "@/components/Why-us";
-import { MessageCircle, Phone, Send } from "lucide-react";
+import { Phone } from "lucide-react";
 import { useState } from "react";
 import VacancyModal from "@/components/VacancyModal";
 
@@ -208,7 +206,7 @@ export default function Page() {
                   <p className="text-foreground/70 text-sm">
                     {vacancy.description}
                   </p>
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
                     <span className="text-lg text-foreground/60">
                       {vacancy.salary}
                     </span>
@@ -245,15 +243,14 @@ export default function Page() {
                   </Button>
                   <Button
                     asChild
-                    variant="outline"
-                    className="h-12 border-white/20 text-white hover:bg-white/10 hover:border-white/30"
+                    className="h-12 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-[oklch(0.141_0.005_285.823)]"
                   >
                     <a href="tel:+79652841415">Позвонить</a>
                   </Button>
                 </div>
               </div>
 
-              <div className="relative hidden h-[320px] w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl md:flex items-center justify-center">
+              <div className="relative hidden h-80 w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl md:flex items-center justify-center">
                 <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-primary/20 blur-2xl" />
                 <Image
                   src="/help-manager.jpg"

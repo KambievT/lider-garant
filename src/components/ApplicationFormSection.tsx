@@ -98,8 +98,8 @@ export default function ApplicationFormSection() {
                   onClick={() => form.setValue("product", p)}
                   className={`rounded-full px-5 py-2 text-sm font-semibold transition-all border ${
                     form.watch("product") === p
-                      ? "bg-primary text-white  border-transparent shadow-[0_20px_45px_-25px_rgba(16,185,129,1)]"
-                      : "bg-none text-primary border-primary hover:bg-primary hover:text-white transition-all"
+                      ? "bg-primary text-[oklch(0.141_0.005_285.823)] border-transparent shadow-[0_20px_45px_-25px_rgba(16,185,129,1)]"
+                      : "bg-none text-primary border-primary hover:bg-primary hover:text-[oklch(0.141_0.005_285.823)] transition-all"
                   }`}
                 >
                   {p}

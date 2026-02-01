@@ -34,7 +34,7 @@ export default function Page() {
       .min(1, "Введите номер телефона")
       .regex(
         /^\+7[\s(]?\d{3}[\s)]?\d{3}[-\s]?\d{2}[-\s]?\d{2}$/,
-        "Введите корректный номер телефона"
+        "Введите корректный номер телефона",
       ),
     fullname: z
       .string()
@@ -44,7 +44,7 @@ export default function Page() {
       .boolean()
       .refine(
         (val) => val === true,
-        "Необходимо дать согласие на обработку персональных данных"
+        "Необходимо дать согласие на обработку персональных данных",
       ),
   });
 
@@ -73,7 +73,7 @@ export default function Page() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast.success(
-        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время."
+        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.",
       );
 
       reset();
@@ -616,7 +616,7 @@ export default function Page() {
 
                 <Button
                   type="submit"
-                  className="h-11 rounded-xl px-6 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-2xl active:translate-y-0 bg-primary"
+                  className="h-11 rounded-xl px-6 text-sm font-semibold text-[oklch(0.141_0.005_285.823)] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-2xl active:translate-y-0 bg-primary"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Отправка..." : "Отправить заявку"}

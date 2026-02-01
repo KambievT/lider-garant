@@ -563,7 +563,7 @@ export default function Page() {
                   onClick={() => setActiveTab("import")}
                   className={`px-6 py-2 rounded-full font-medium transition-colors ${
                     activeTab === "import"
-                      ? "bg-primary text-white"
+                      ? "bg-primary text-[oklch(0.141_0.005_285.823)]"
                       : "text-foreground/70 hover:text-foreground"
                   }`}
                 >
@@ -573,7 +573,7 @@ export default function Page() {
                   onClick={() => setActiveTab("export")}
                   className={`px-6 py-2 rounded-full font-medium transition-colors ${
                     activeTab === "export"
-                      ? "bg-primary text-white"
+                      ? "bg-primary text-[oklch(0.141_0.005_285.823)]"
                       : "text-foreground/70 hover:text-foreground"
                   }`}
                 >
@@ -920,17 +920,17 @@ export default function Page() {
                         />
                       </svg>
 
-                      <div className="flex flex-col items-center text-center w-28 md:w-32">
-                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-emerald-500/10 flex flex-col items-center justify-center mb-2 px-2">
-                          <span className="text-[10px] md:text-xs font-semibold text-emerald-500 leading-tight">
+                      <div className="flex flex-col items-center text-center w-32 md:w-36">
+                        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-emerald-500/10 border-2 border-emerald-500/20 flex flex-col items-center justify-center mb-2 px-2 py-2">
+                          <span className="text-[9px] md:text-[10px] font-bold text-emerald-500 leading-tight uppercase">
                             Агентский
                             <br />
                             договор
                           </span>
-                          <span className="mt-1 text-[10px] md:text-xs text-foreground/70">
+                          <span className="mt-0.5 text-[8px] md:text-[9px] text-foreground/60 leading-none">
                             комиссия
                           </span>
-                          <span className="text-lg md:text-2xl font-bold text-primary">
+                          <span className="text-xl md:text-3xl font-extrabold text-primary leading-none mt-0.5">
                             0%
                           </span>
                         </div>

@@ -136,10 +136,10 @@ export default function TopApplicationForm() {
             </div>
           </div>
 
-          <div className="flex shrink-0 w-full lg:w-auto">
+          <div className="flex shrink-0 w-full lg:w-auto z-30 ">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="w-full max-w-lg lg:max-w-xl rounded-2xl md:rounded-3xl border border-foreground/20 bg-white/5 p-5 md:p-10 lg:p-12 shadow-2xl relative mt-4 md:-mt-8 lg:-mt-12 md:-mb-8 lg:-mb-12"
+              className="w-full max-w-lg lg:max-w-xl rounded-2xl md:rounded-3xl border border-foreground/20  bg-white/5 p-5 md:p-10 lg:p-12 shadow-2xl relative mt-4 md:-mt-8 lg:-mt-12 md:-mb-8 lg:-mb-12"
               aria-label="Форма получения банковской гарантии"
             >
               <h3 className="mb-1 text-xl md:text-2xl font-bold leading-tight text-primary">

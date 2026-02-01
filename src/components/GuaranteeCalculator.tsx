@@ -99,7 +99,7 @@ export default function GuaranteeCalculator() {
                   className={`rounded-lg md:rounded-xl px-2 md:px-4 py-2 md:py-2.5 text-xs md:text-sm font-semibold transition-all hover:-translate-y-1 cursor-pointer
                     ${
                       guaranteeType === type.value
-                        ? "border-2 border-teal-400 bg-teal-400 text-white"
+                        ? "border-2 border-teal-400 bg-teal-400 text-[oklch(0.141_0.005_285.823)]"
                         : "border-2 border-teal-400 text-teal-600 bg-transparent"
                     }`}
                 >

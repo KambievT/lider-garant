@@ -77,7 +77,7 @@ export default function ManagerCTASection() {
                     </p>
                     {isApplicationLink && isHomePage ? (
                       <Button
-                        className="absolute bottom-5 left-4 right-4 sm:left-5 sm:right-5 h-10 rounded-2xl border-2 border-primary bg-transparent text-primary text-[11px] font-semibold uppercase tracking-wide hover:bg-primary hover:text-white whitespace-nowrap"
+                        className="absolute bottom-5 left-4 right-4 sm:left-5 sm:right-5 h-10 rounded-2xl border-2 border-primary bg-transparent text-primary text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide hover:bg-primary hover:text-white hover:text-[oklch(0.141_0.005_285.823)] text-center leading-tight"
                         onClick={(e) => {
                           e.preventDefault();
                           const section =
@@ -92,7 +92,7 @@ export default function ManagerCTASection() {
                     ) : (
                       <Button
                         asChild
-                        className="absolute bottom-5 left-4 right-4 sm:left-5 sm:right-5 h-10 rounded-2xl border-2 border-primary bg-transparent text-primary text-[11px] font-semibold uppercase tracking-wide hover:bg-primary hover:text-white whitespace-nowrap"
+                        className="absolute bottom-5 left-4 right-4 sm:left-5 sm:right-5 h-10 rounded-2xl border-2 border-primary bg-transparent text-primary text-[10px] sm:text-[11px] font-semibold normal-case tracking-normal hover:bg-primary hover:text-white hover:text-[oklch(0.141_0.005_285.823)] text-center leading-tight"
                       >
                         <Link href={finalLink}>{cta}</Link>
                       </Button>

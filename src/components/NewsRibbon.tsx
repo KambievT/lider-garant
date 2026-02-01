@@ -48,10 +48,10 @@ export default function NewsRibbon() {
         </h2>
 
         <div className="absolute top-2 right-6 z-10 isolate flex gap-3 md:top-6 md:right-6">
-          <button className="news-swiper-button-prev flex h-10 w-10 items-center justify-center rounded-full bg-primary backdrop-blur-xl border border-white/10 text-white shadow-lg transition-all hover:bg-white/10 hover:text-primary hover:border-primary">
+          <button className="news-swiper-button-prev flex h-10 w-10 items-center justify-center rounded-full bg-primary backdrop-blur-xl border border-white/10 text-[oklch(0.141_0.005_285.823)] shadow-lg transition-all hover:bg-white/10 hover:text-primary hover:border-primary">
             ←
           </button>
-          <button className="news-swiper-button-next flex h-10 w-10 items-center justify-center rounded-full bg-primary backdrop-blur-xl border border-white/10 text-white shadow-lg transition-all hover:bg-white/10 hover:text-primary hover:border-primary">
+          <button className="news-swiper-button-next flex h-10 w-10 items-center justify-center rounded-full bg-primary backdrop-blur-xl border border-white/10 text-[oklch(0.141_0.005_285.823)] shadow-lg transition-all hover:bg-white/10 hover:text-primary hover:border-primary">
             →
           </button>
         </div>
@@ -93,7 +93,7 @@ export default function NewsRibbon() {
                 <Button
                   asChild
                   size="sm"
-                  className="h-9 bg-none border-primary border text-primary hover:bg-primary hover:text-white transition-all"
+                  className="h-9 bg-none border-primary border text-primary hover:bg-primary hover:text-white hover:text-[oklch(0.141_0.005_285.823)] transition-all"
                 >
                   <a href="/novosti">Читать полностью →</a>
                 </Button>

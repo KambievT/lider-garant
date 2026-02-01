@@ -128,7 +128,9 @@
 /* Accent on hover for links/text */
 .link-gradient {
   color: var(--foreground);
-  transition: color 0.2s ease, opacity 0.2s ease;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
 }
 .link-gradient:hover,
 .link-gradient:focus-visible {
@@ -214,7 +216,7 @@
   padding: 12px 24px;
   border: none;
   background: transparent;
-  color: #fff;
+  color: oklch(0.141 0.005 285.823);
   font-size: 16px;
   cursor: pointer;
   overflow: hidden;
@@ -341,7 +343,7 @@
 }
 
 .learn-more:hover .button-text {
-  color: white;
+  color: oklch(0.141 0.005 285.823);
 }
 
 .nav-link {
@@ -369,7 +371,10 @@
   border-radius: 12px;
   color: var(--foreground);
   isolation: isolate;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
   will-change: transform;
 }
 .btn-outline-anim svg {
@@ -380,7 +385,9 @@
   stroke: var(--foreground);
   stroke-dasharray: 150 480;
   stroke-dashoffset: 150;
-  transition: stroke-dashoffset 1s ease-in-out, stroke 0.2s ease;
+  transition:
+    stroke-dashoffset 1s ease-in-out,
+    stroke 0.2s ease;
   pointer-events: none;
 }
 .btn-outline-anim rect {

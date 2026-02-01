@@ -332,7 +332,7 @@ export default function DepositsPage() {
                   </div>
 
                   <Link href="#application">
-                    <Button className="shrink-0 text-primary rounded-xl px-4 py-2 text-xs font-semibold shadow-sm  hover:-translate-y-0.5 hover:shadow-md bg-none border-2 border-primary hover:bg-primary hover:text-white cursor-pointer mt-6 w-full transition-all">
+                    <Button className="shrink-0 text-primary rounded-xl px-4 py-2 text-xs font-semibold shadow-sm  hover:-translate-y-0.5 hover:shadow-md bg-none border-2 border-primary hover:bg-primary hover:text-white hover:text-[oklch(0.141_0.005_285.823)] cursor-pointer mt-6 w-full transition-all">
                       Подать заявку
                     </Button>
                   </Link>

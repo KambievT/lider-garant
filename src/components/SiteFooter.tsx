@@ -193,7 +193,7 @@ export default function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/sitemap" className="nav-link link-gradient">
+                <Link href="/karta-saita" className="nav-link link-gradient">
                   Карта сайта
                 </Link>
               </li>
