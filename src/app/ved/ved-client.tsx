@@ -1115,6 +1115,35 @@ export default function Page() {
       </FadeIn>
 
       <FadeIn>
+        <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 p-8 md:p-12 my-12">
+          <div className="relative z-10 grid gap-8 md:grid-cols-[1fr_auto] items-center">
+            <div className="space-y-3">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary">
+                Нужно больше информации?
+              </h2>
+              <p className="text-lg text-foreground/80 leading-relaxed">
+                Звоните и наши менеджеры подробно вам всё расскажут!
+              </p>
+            </div>
+            <div>
+              <Button
+                size="lg"
+                className="btn-three h-14 px-8 text-base font-semibold whitespace-nowrap"
+                onClick={() => {
+                  const contactSection = document.getElementById("contact");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                Заказать звонок
+              </Button>
+            </div>
+          </div>
+        </section>
+      </FadeIn>
+
+      <FadeIn>
         <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-500/5 via-sky-500/5 to-emerald-500/5 p-8 md:p-12 my-12">
           <div className="relative z-10">
             <div className="mb-12 text-center">
@@ -1279,35 +1308,6 @@ export default function Page() {
 
       <FadeIn>
         <HowItWorksSection />
-      </FadeIn>
-
-      <FadeIn>
-        <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 p-8 md:p-12 my-12">
-          <div className="relative z-10 grid gap-8 md:grid-cols-[1fr_auto] items-center">
-            <div className="space-y-3">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary">
-                Нужно больше информации?
-              </h2>
-              <p className="text-lg text-foreground/80 leading-relaxed">
-                Звоните и наши менеджеры подробно вам всё расскажут!
-              </p>
-            </div>
-            <div>
-              <Button
-                size="lg"
-                className="btn-three h-14 px-8 text-base font-semibold whitespace-nowrap"
-                onClick={() => {
-                  const contactSection = document.getElementById("contact");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-              >
-                Заказать звонок
-              </Button>
-            </div>
-          </div>
-        </section>
       </FadeIn>
 
       <FadeIn>
