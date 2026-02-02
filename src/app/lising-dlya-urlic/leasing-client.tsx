@@ -597,10 +597,7 @@ export default function Page() {
                 "какое оборудование в лизинг",
               ].map((t, i) => (
                 <div key={i}>
-                  <Link
-                    href="/v-razrabotke"
-                    className="nav-link link-gradient"
-                  >
+                  <Link href="/v-razrabotke" className="nav-link link-gradient">
                     {t}
                   </Link>
                 </div>

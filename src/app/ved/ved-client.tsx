@@ -1431,10 +1431,7 @@ export default function Page() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-6">
               {faqs.map((t, i) => (
                 <div key={i}>
-                  <Link
-                    href="/v-razrabotke"
-                    className="nav-link link-gradient"
-                  >
+                  <Link href="/v-razrabotke" className="nav-link link-gradient">
                     {t}
                   </Link>
                 </div>
