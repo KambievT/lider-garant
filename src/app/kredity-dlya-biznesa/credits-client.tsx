@@ -845,13 +845,14 @@ export default function Page() {
                 "коммерческая ипотека",
                 "льготный кредит бизнесу",
               ].map((t, i) => (
-                <Link
-                  key={i}
-                  href="/v-razrabotke"
-                  className="block nav-link link-gradient"
-                >
-                  {t}
-                </Link>
+                <div key={i}>
+                  <Link
+                    href="/v-razrabotke"
+                    className="nav-link link-gradient"
+                  >
+                    {t}
+                  </Link>
+                </div>
               ))}
             </div>
           </div>

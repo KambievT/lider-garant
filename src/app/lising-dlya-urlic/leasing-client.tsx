@@ -596,13 +596,14 @@ export default function Page() {
                 "приобрести оборудование в лизинг",
                 "какое оборудование в лизинг",
               ].map((t, i) => (
-                <Link
-                  key={i}
-                  href="/v-razrabotke"
-                  className="block nav-link link-gradient"
-                >
-                  {t}
-                </Link>
+                <div key={i}>
+                  <Link
+                    href="/v-razrabotke"
+                    className="nav-link link-gradient"
+                  >
+                    {t}
+                  </Link>
+                </div>
               ))}
             </div>
           </div>

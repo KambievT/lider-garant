@@ -622,13 +622,14 @@ export default function BankGuaranteePage() {
                   "Банковская гарантия на обеспечение исполнения контракт",
                   "Банковская гарантия на обеспечение обязательств",
                 ].map((t, i) => (
-                  <Link
-                    key={i}
-                    href="/v-razrabotke"
-                    className="block nav-link link-gradient"
-                  >
-                    {t}
-                  </Link>
+                  <div key={i}>
+                    <Link
+                      href="/v-razrabotke"
+                      className="nav-link link-gradient"
+                    >
+                      {t}
+                    </Link>
+                  </div>
                 ))}
               </div>
             </div>

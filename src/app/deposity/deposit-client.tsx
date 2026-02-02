@@ -185,7 +185,9 @@ export default function DepositsPage() {
 
             <div className="flex flex-wrap gap-4 mt-4">
               <Link href="#application">
-                <button className="h-12 btn-three">Подать заявку</button>
+                <button className="h-12 btn-three font-semibold">
+                  Подать заявку
+                </button>
               </Link>
             </div>
 
@@ -224,7 +226,6 @@ export default function DepositsPage() {
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
               <div className="flex gap-4 flex-wrap items-center">
-                {/* Bank select (shadcn) */}
                 <Select value={bankFilter} onValueChange={setBankFilter}>
                   <SelectTrigger className="min-w-[200px] rounded-xl bg-white/5 border border-white/10 text-[var(--foreground)]">
                     <SelectValue>
@@ -241,7 +242,6 @@ export default function DepositsPage() {
                   </SelectContent>
                 </Select>
 
-                {/* Term select (shadcn) */}
                 <Select value={termFilter} onValueChange={setTermFilter}>
                   <SelectTrigger className="min-w-[180px] rounded-xl bg-white/5 border border-white/10 text-[var(--foreground)]">
                     <SelectValue>
@@ -553,7 +553,7 @@ export default function DepositsPage() {
 
         <FadeIn>
           <section className="mx-auto w-full max-w-7xl py-12">
-            <h2 className="mb-10 text-2xl font-bold text-primary md:text-3xl">
+            <h2 className="mb-10 text-2xl font-bold text-primary md:text-3xl text-center">
               Часто ищут
             </h2>
 
@@ -572,13 +572,14 @@ export default function DepositsPage() {
                   "Депозиты для крупного бизнеса",
                   "Депозиты для компаний",
                 ].map((t, i) => (
-                  <Link
-                    key={i}
-                    href="/v-razrabotke"
-                    className="block nav-link link-gradient"
-                  >
-                    {t}
-                  </Link>
+                  <div key={i}>
+                    <Link
+                      href="/v-razrabotke"
+                      className="nav-link link-gradient"
+                    >
+                      {t}
+                    </Link>
+                  </div>
                 ))}
               </div>
             </div>

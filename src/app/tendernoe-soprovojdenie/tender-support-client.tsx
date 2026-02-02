@@ -221,13 +221,14 @@ export default function Page() {
                 "Подача заявок тендер",
                 "Подача заявки на участие в тендерах",
               ].map((t, i) => (
-                <Link
-                  key={i}
-                  href="/v-razrabotke"
-                  className="block nav-link link-gradient"
-                >
-                  {t}
-                </Link>
+                <div key={i}>
+                  <Link
+                    href="/v-razrabotke"
+                    className="nav-link link-gradient"
+                  >
+                    {t}
+                  </Link>
+                </div>
               ))}
             </div>
           </div>
