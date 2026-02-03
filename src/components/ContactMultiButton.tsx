@@ -24,8 +24,11 @@ const ContactMultiButton = ({ onOpenCallModal }: ContactMultiButtonProps) => {
       icon: MessageCircle,
       label: "MAX",
       action: () => {
-        window.open("https://wa.me/79652841415", "_blank");
-      },
+        window.open(
+          "https://max.ru/u/f9LHodD0cOIXEPJot15IEj_2EIeaAZsKSjeCGIcybYIybHk3HTuHQ3LCd-Y",
+          "_blank",
+        );
+    },
       color: "bg-primary",
     },
     {

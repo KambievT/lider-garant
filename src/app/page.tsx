@@ -91,11 +91,13 @@ export default function Home() {
         <section className="relative overflow-hidden rounded-[40px] border border-foreground/10">
           <div className="relative grid gap-8 px-4 py-10 sm:gap-10 sm:py-12 md:px-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12 lg:px-14">
             <div className="flex min-w-0 flex-col justify-center space-y-5 text-left sm:space-y-6 lg:pr-6 xl:pr-10">
-              <h1 className="text-3xl font-semibold leading-tight md:text-[52px]">
-                <span className="block text-primary tracking-tight">
+              <h1 className="text-3xl font-semibold leading-tight md:text-[52px] break-words md:break-normal">
+                <span className="block text-primary tracking-tight wrap-break-word md:break-normal">
                   Финансовый маркетплейс
                 </span>
-                <span className="block mt-2">для предпринимателей</span>
+                <span className="block mt-2 wrap-break-word md:break-normal">
+                  для предпринимателей
+                </span>
               </h1>
 
               <p className="max-w-sm text-sm leading-relaxed text-foreground/70 md:text-lg">
@@ -107,7 +109,10 @@ export default function Home() {
                   <span className="circle">
                     <span className="icon arrow"></span>
                   </span>
-                  <Link href="#application" className="button-text">
+                  <Link
+                    href="#application"
+                    className="button-text text-sm md:text-base"
+                  >
                     Получить предложение
                   </Link>
                 </button>
@@ -161,7 +166,7 @@ export default function Home() {
                   )}
                 </div>
 
-                <div className="mt-auto flex items-center justify-between gap-3">
+                <div className="mt-auto flex items-center justify-between gap-3 relative z-10">
                   {item.link ? (
                     <Link
                       href={item.link}
