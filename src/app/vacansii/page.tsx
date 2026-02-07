@@ -327,7 +327,7 @@ export default function Page() {
                       rel="noopener noreferrer"
                       title="MAX"
                     >
-                      <a href="https://logo-teka.com/max/">
+                      <a href="https://max.ru/u/f9LHodD0cOIXEPJot15IEj_2EIeaAZsKSjeCGIcybYIybHk3HTuHQ3LCd-Y">
                         <img
                           src="https://logo-teka.com/wp-content/uploads/2025/07/max-messenger-sign-logo.png"
                           alt="PNG logo Max"

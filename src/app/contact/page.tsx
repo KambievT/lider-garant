@@ -2,6 +2,7 @@
 
 import FadeIn from "@/components/FadeIn";
 import { MapPin, Phone, Clock, Mail } from "lucide-react";
+import Image from "next/image";
 
 export default function Page() {
   return (
@@ -50,7 +51,9 @@ export default function Page() {
                 <Phone className="h-6 w-6" />
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-foreground">Служба поддержки</h2>
+                <h2 className="text-lg font-semibold text-foreground">
+                  Служба поддержки
+                </h2>
                 <a
                   href="tel:+79652841415"
                   className="mt-1 block text-lg font-medium text-primary hover:underline"
@@ -70,8 +73,12 @@ export default function Page() {
                 <Clock className="h-6 w-6" />
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-foreground">Время работы</h2>
-                <p className="mt-1 text-muted-foreground">Ежедневно с 7 до 20 Мск</p>
+                <h2 className="text-lg font-semibold text-foreground">
+                  Время работы
+                </h2>
+                <p className="mt-1 text-muted-foreground">
+                  Ежедневно с 7 до 20 Мск
+                </p>
               </div>
             </div>
           </div>
@@ -97,6 +104,132 @@ export default function Page() {
           </div>
         </FadeIn>
       </div>
+
+      {/* Мессенджеры */}
+      <FadeIn delay={0.5}>
+        <h2 className="text-2xl font-semibold text-foreground mb-6">
+          Напишите нам
+        </h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          <a
+            href="https://vk.com/lidergarant"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-blue-500/5 via-transparent to-blue-600/5 p-6 transition-all hover:border-primary/30"
+          >
+            <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/10 blur-2xl transition-all group-hover:bg-primary/20" />
+            <div className="relative flex items-center gap-4">
+              <div className="relative h-12 w-12 shrink-0 rounded-xl overflow-hidden">
+                <Image
+                  src="/vk-logo.webp"
+                  alt="VK"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 rounded-xl"
+                />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                  Написать в ВКонтакте
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Ответим в течение часа
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://max.ru/u/f9LHodD0cOIXEPJot15IEj_2EIeaAZsKSjeCGIcybYIybHk3HTuHQ3LCd-Y"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-indigo-500/5 via-transparent to-sky-500/5 p-6 transition-all hover:border-primary/30"
+          >
+            <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/10 blur-2xl transition-all group-hover:bg-primary/20" />
+            <div className="relative flex items-center gap-4">
+              <div className="relative h-14 w-14 shrink-0 rounded-xl overflow-hidden">
+                <Image
+                  src="/MAX.svg"
+                  alt="Max Icon"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                  Написать в Макс
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Ответим в течение часа
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </FadeIn>
+
+      <FadeIn delay={0.6}>
+        <h2 className="text-2xl font-semibold text-foreground mb-6">
+          Наши группы в соц. сетях
+        </h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          <a
+            href="https://t.me/lidergarant"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-sky-500/5 via-transparent to-blue-500/5 p-6 transition-all hover:border-primary/30"
+          >
+            <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/10 blur-2xl transition-all group-hover:bg-primary/20" />
+            <div className="relative flex items-center gap-4">
+              <div className="relative h-12 w-12 shrink-0 rounded-xl overflow-hidden">
+                <Image
+                  src="/tg-logo.webp"
+                  alt="Telegram"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12"
+                />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                  Telegram
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  @lidergarant
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://vk.com/lider_garant"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-blue-500/5 via-transparent to-indigo-500/5 p-6 transition-all hover:border-primary/30"
+          >
+            <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/10 blur-2xl transition-all group-hover:bg-primary/20" />
+            <div className="relative flex items-center gap-4">
+              <div className="relative h-12 w-12 shrink-0 rounded-xl overflow-hidden">
+                <Image
+                  src="/vk-logo.webp"
+                  alt="VK"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 rounded-xl"
+                />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                  ВКонтакте
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  lider_garant
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </FadeIn>
     </main>
   );
 }
