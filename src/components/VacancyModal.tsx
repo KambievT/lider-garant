@@ -290,6 +290,7 @@ export default function VacancyModal({ vacancy, open, onClose }: Props) {
   });
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 

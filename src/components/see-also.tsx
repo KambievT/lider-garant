@@ -94,7 +94,14 @@ export default function SeeAlso({ currentPage }: SeeAlsoProps) {
   return <SeeAlsoSection related={related} />;
 }
 
-function SeeAlsoSection({ related }: { related: any[] }) {
+interface RelatedItem {
+  title: string;
+  description: string;
+  path: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+function SeeAlsoSection({ related }: { related: RelatedItem[] }) {
   return (
     <>
       <section className="mx-auto w-full max-w-7xl py-12">

@@ -1,18 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export default function CookieConsent() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return !localStorage.getItem("cookieConsent");
+  });
   const [isHiding, setIsHiding] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem("cookieConsent");
-    if (!consent) {
-      setIsVisible(true);
-    }
-  }, []);
 
   const hideWithAnimation = (consentType: string) => {
     setIsHiding(true);
