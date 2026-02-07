@@ -112,7 +112,7 @@ export default function Page() {
         </h2>
         <div className="grid gap-6 md:grid-cols-2">
           <a
-            href="https://vk.com/lidergarant"
+            href="https://t.me/lider_garant"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-blue-500/5 via-transparent to-blue-600/5 p-6 transition-all hover:border-primary/30"
@@ -121,8 +121,8 @@ export default function Page() {
             <div className="relative flex items-center gap-4">
               <div className="relative h-12 w-12 shrink-0 rounded-xl overflow-hidden">
                 <Image
-                  src="/vk-logo.webp"
-                  alt="VK"
+                  src="/tg-logo.webp"
+                  alt="Telegram"
                   width={48}
                   height={48}
                   className="w-12 h-12 rounded-xl"
@@ -130,7 +130,7 @@ export default function Page() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                  Написать в ВКонтакте
+                  Написать в Телеграм
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">
                   Ответим в течение часа
