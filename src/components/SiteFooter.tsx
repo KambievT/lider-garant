@@ -175,7 +175,7 @@ export default function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/tendernoe-soprovojdenie"
+                  href="/tendernoe-soprovozhdenie"
                   className="nav-link link-gradient"
                 >
                   Тендерное сопровождение
