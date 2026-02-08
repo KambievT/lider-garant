@@ -96,9 +96,10 @@ export default function SeeAlso({ currentPage }: SeeAlsoProps) {
 
 interface RelatedItem {
   title: string;
-  description: string;
-  path: string;
-  icon: React.ComponentType<{ className?: string }>;
+  desc: string;
+  href: string;
+  img: string;
+  link: string;
 }
 
 function SeeAlsoSection({ related }: { related: RelatedItem[] }) {
