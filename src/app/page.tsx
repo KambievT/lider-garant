@@ -109,12 +109,12 @@ export default function Home() {
                   <span className="circle">
                     <span className="icon arrow"></span>
                   </span>
-                  <Link
+                  <a
                     href="#application"
                     className="button-text text-sm md:text-base"
                   >
                     Получить предложение
-                  </Link>
+                  </a>
                 </button>
               </div>
             </div>
